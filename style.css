@@ -1,0 +1,273 @@
+/* OMIT. のホームページ。
+   作りの手本は Norma（nor.ma）: 縁から 16 の角丸 28 の大きな一枚・浮いたピルの帯・ぼけから焦点の合う現れ方。
+   釦の動きは Sabbath（trysabbath.com）の styles.css をそのまま写した（158×62 のピル → 264×304 の角 28 の板・QR）。
+   手本に無いのは、広がっている間に他をぼかすこと【SR・2026-10-20】。
+   色と字は新しいアプリ（~/projects/OMIT.-2/デザインシステム.md）: 地は白・字は #2A2A2A・主の色はブロンズゴールド #A96F4A・題は Cormorant Garamond Light・本人の言葉は Noto Serif JP Light。 */
+
+:root {
+  --ground: #ffffff;
+  --ink: #2a2a2a;
+  --body: #3a3a3a;
+  --sub: #666666;
+  --bronze: #a96f4a;
+  --bronze-ink: #92593a;
+  --inset: 16px;
+  --radius: 28px;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --sans: "Helvetica Neue", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", system-ui, -apple-system, sans-serif;
+  --serif-en: "Cormorant Garamond", "Times New Roman", serif;
+  --serif-jp: "Noto Serif JP", "Hiragino Mincho ProN", "Yu Mincho", serif;
+}
+
+html { min-width: 320px; background: var(--ground); }
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--ground);
+  font-family: var(--sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overscroll-behavior-y: none;
+}
+
+/* ぼかし: 釦が広がっている間、板以外の全部 */
+.blurable { transition: filter 280ms var(--ease-out), opacity 280ms var(--ease-out); }
+body:has(.cta-shell:hover) .blurable,
+body:has(.cta-shell:focus-within) .blurable { filter: blur(14px); }
+/* 絵は少し大きくして、ぼけた縁が角丸の内側で白く抜けないようにする */
+.hero-media { transition: filter 280ms var(--ease-out), transform 280ms var(--ease-out); }
+body:has(.cta-shell:hover) .hero-media,
+body:has(.cta-shell:focus-within) .hero-media { transform: scale(1.06); }
+
+/* 上の帯（Norma: 白 80% + 後ろをぼかす・丸いピル・高さ 40・縁から 16・上から 12） */
+.bar {
+  position: fixed;
+  z-index: 20;
+  top: 12px;
+  left: var(--inset);
+  right: var(--inset);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  pointer-events: none;
+}
+.bar > * { pointer-events: auto; }
+.wordmark {
+  display: inline-flex;
+  align-items: center;
+  height: 40px;
+  padding: 0 16px 0 18px;
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.8);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border-radius: 1000px;
+  font-family: var(--serif-en);
+  font-weight: 300;
+  font-size: 22px;
+  letter-spacing: 1px;
+  text-decoration: none;
+}
+.bar-cta {
+  display: inline-flex;
+  align-items: center;
+  height: 40px;
+  padding: 0 16px;
+  color: #ffffff;
+  background: var(--bronze);
+  border-radius: 1000px;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background-color 150ms ease;
+}
+.bar-cta:hover { background: var(--bronze-ink); }
+
+/* 一枚目（Norma: 縁から 16・角 28・絵は cover） */
+.hero {
+  position: relative;
+  margin: var(--inset);
+  min-height: 560px;
+  height: calc(100vh - 2 * var(--inset));
+  height: calc(100svh - 2 * var(--inset));
+  border-radius: var(--radius);
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto 1fr auto;
+  padding: 88px 48px 48px;
+  box-sizing: border-box;
+  color: #ffffff;
+  isolation: isolate;
+}
+.hero-media { position: absolute; inset: 0; z-index: 0; }
+.hero-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 42%;
+}
+.hero-scrim {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to bottom, rgba(42, 42, 42, 0.42) 0%, rgba(42, 42, 42, 0) 38%),
+    linear-gradient(to top, rgba(42, 42, 42, 0.5) 0%, rgba(42, 42, 42, 0) 42%);
+}
+
+h1 {
+  position: relative;
+  z-index: 1;
+  grid-column: 1;
+  grid-row: 1;
+  margin: 0;
+  font-family: var(--serif-jp);
+  font-weight: 300;
+  font-size: 56px;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  text-wrap: balance;
+}
+h1 span { display: block; white-space: nowrap; }
+
+.hero-lede {
+  position: relative;
+  z-index: 1;
+  grid-column: 2;
+  grid-row: 1;
+  justify-self: end;
+  align-self: start;
+  margin: 10px 0 0;
+  max-width: 380px;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+/* 釦（Sabbath の .cta-shell / .cta / .cta-text / .cta-qr をそのまま。色だけブロンズ） */
+.cta-shell {
+  position: relative;
+  z-index: 5;
+  grid-column: 1 / -1;
+  grid-row: 3;
+  justify-self: center;
+  width: 158px;
+  height: 62px;
+}
+.cta {
+  position: absolute;
+  z-index: 1;
+  right: 50%;
+  bottom: 0;
+  display: inline-flex;
+  width: 158px;
+  height: 62px;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  color: #ffffff;
+  background: var(--bronze);
+  border-radius: 1000px;
+  text-decoration: none;
+  white-space: nowrap;
+  isolation: isolate;
+  transform: translateX(50%);
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  transition:
+    width 280ms var(--ease-spring),
+    height 280ms var(--ease-spring),
+    border-radius 220ms var(--ease-out),
+    background-color 220ms ease,
+    color 220ms ease,
+    box-shadow 280ms ease;
+}
+.cta-text {
+  position: relative;
+  z-index: 1;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 34px;
+  letter-spacing: -0.6px;
+  transition: opacity 140ms ease;
+}
+.cta-qr {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 24px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 160ms ease 80ms;
+}
+.cta-qr img { display: block; width: 200px; height: 200px; }
+.cta-caption { color: #ffffff; font-size: 13px; font-weight: 600; letter-spacing: -0.05px; }
+
+@media (hover: hover) and (pointer: fine) {
+  .cta-shell::before {
+    position: absolute;
+    z-index: 0;
+    right: 50%;
+    bottom: -4px;
+    width: 166px;
+    height: 70px;
+    border-radius: 1000px;
+    content: "";
+    transform: translateX(50%);
+  }
+  .cta-shell:hover::before,
+  .cta-shell:focus-within::before { width: 272px; height: 312px; border-radius: 32px; }
+  .cta-shell:hover .cta,
+  .cta-shell:focus-within .cta {
+    width: 264px;
+    height: 304px;
+    color: #ffffff;
+    background-color: var(--bronze);
+    border-radius: 28px;
+    box-shadow:
+      0 60px 140px -20px rgba(0, 0, 0, 0.32),
+      0 30px 80px -10px rgba(0, 0, 0, 0.2),
+      0 8px 24px rgba(0, 0, 0, 0.16);
+  }
+  .cta-shell:hover .cta-text,
+  .cta-shell:focus-within .cta-text { opacity: 0; }
+  .cta-shell:hover .cta-qr,
+  .cta-shell:focus-within .cta-qr { opacity: 1; }
+}
+
+/* 下の行（Sabbath の下の二つの小さな字と同じ扱い） */
+.foot {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 28px;
+  padding: 8px var(--inset) 28px;
+}
+.foot a { color: var(--sub); font-size: 13px; font-weight: 500; text-decoration: none; }
+.foot a:hover { color: var(--ink); }
+
+/* 狭い画面 */
+@media (max-width: 760px) {
+  .hero {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto 1fr auto;
+    padding: 84px 22px 28px;
+    min-height: 0;
+    height: calc(100svh - 2 * var(--inset));
+  }
+  h1 { grid-column: 1; grid-row: 1; font-size: clamp(32px, 9.4vw, 40px); }
+  .hero-lede { grid-column: 1; grid-row: 2; justify-self: start; max-width: 100%; margin-top: 18px; font-size: 15px; }
+  .cta-shell { grid-row: 4; }
+  .wordmark { font-size: 20px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cta, .cta-text, .cta-qr, .blurable, .bar-cta { transition: none; }
+}
