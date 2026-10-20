@@ -25,7 +25,7 @@
 <main>
   <section class="hero" aria-labelledby="hero-title">
     <div class="hero-media blurable" aria-hidden="true">
-      <img src="assets/welcome.jpg" alt="" width="896" height="1920" fetchpriority="high">
+      <img id="hero-img" src="assets/welcome.jpg" alt="" width="896" height="1920" fetchpriority="high">
       <div class="hero-scrim"></div>
     </div>
 
@@ -51,5 +51,12 @@
   <a href="https://sakamo349sr-hub.github.io/omit-legal/tokushoho/">特定商取引法に基づく表記</a>
 </footer>
 
+<script>
+  // 絵の候補を見比べるためだけ（?hero=living などで差し替える）。決まったら外す
+  (function () {
+    var m = /[?&]hero=([a-z]+)/.exec(location.search);
+    if (m) { var i = document.getElementById('hero-img'); i.src = 'assets/hero/' + m[1] + '.jpg'; i.width = 1792; i.height = 1024; }
+  })();
+</script>
 </body>
 </html>
