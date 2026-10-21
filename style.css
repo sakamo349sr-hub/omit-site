@@ -283,7 +283,6 @@ h1 span { display: block; white-space: nowrap; }
 .reveal { opacity: 0; filter: blur(10px); transform: translateY(12px); transition: opacity 700ms var(--ease-out), filter 700ms var(--ease-out), transform 700ms var(--ease-out); }
 .reveal.in { opacity: 1; filter: none; transform: none; }
 
-.eyebrow { margin: 0 0 16px; color: var(--bronze-ink); font-size: 15px; font-weight: 600; letter-spacing: 0.08em; }
 br.m { display: none; }
 h2 { margin: 0 0 24px; font-family: var(--serif-jp); font-weight: 300; font-size: 44px; line-height: 1.35; letter-spacing: 0.01em; color: var(--ink); text-wrap: balance; }
 .why p, .how-head p, .step p { margin: 0 0 16px; color: var(--body); font-size: 19px; line-height: 1.75; font-weight: 400; }
@@ -315,8 +314,8 @@ h2 { margin: 0 0 24px; font-family: var(--serif-jp); font-weight: 300; font-size
   border-radius: var(--radius);
 }
 .fact-row li { display: flex; flex-direction: column; gap: 8px; }
-.fact-num { font-family: var(--sans); font-weight: 500; font-size: 52px; line-height: 1; color: var(--ink); letter-spacing: -0.02em; font-variant-numeric: lining-nums tabular-nums; }
-.fact-word { font-family: var(--sans); font-weight: 500; font-size: 44px; }
+.fact-num { font-family: var(--serif-jp); font-weight: 300; font-size: 52px; line-height: 1; color: var(--ink); letter-spacing: 0.01em; font-variant-numeric: lining-nums tabular-nums; }
+.fact-word { font-family: var(--serif-jp); font-weight: 300; font-size: 46px; }
 .fact-label { color: var(--sub); font-size: 16px; line-height: 1.6; }
 .fact-note { margin: 12px 8px 0; color: var(--sub); font-size: 12px; line-height: 1.6; }
 
@@ -480,8 +479,8 @@ h2 { margin: 0 0 24px; font-family: var(--serif-jp); font-weight: 300; font-size
 .plan-year { background: rgba(169, 111, 74, 0.10); }
 .plan-badge { position: absolute; top: 18px; right: 18px; margin: 0; padding: 6px 12px; border-radius: 1000px; background: var(--bronze); color: #fff; font-size: 12px; font-weight: 600; }
 .plan-name { margin: 0 0 12px; color: var(--sub); font-size: 16px; font-weight: 600; }
-.plan-price { margin: 0; font-family: var(--sans); font-weight: 500; font-size: 56px; line-height: 1; color: var(--ink); letter-spacing: -0.02em; font-variant-numeric: lining-nums tabular-nums; }
-.plan-price .yen { font-size: 28px; margin-right: 4px; vertical-align: 14px; font-weight: 500; }
+.plan-price { margin: 0; font-family: var(--serif-jp); font-weight: 300; font-size: 56px; line-height: 1; color: var(--ink); letter-spacing: 0.01em; font-variant-numeric: lining-nums tabular-nums; }
+.plan-price .yen { font-size: 28px; margin-right: 4px; vertical-align: 14px; font-weight: 300; }
 .plan-price .per { font-family: var(--sans); font-size: 17px; font-weight: 500; color: var(--sub); margin-left: 6px; }
 .plan-note { margin: 14px 0 26px; color: var(--sub); font-size: 15px; line-height: 1.6; }
 .plan .pill { margin-top: auto; height: 50px; padding: 0 24px; font-size: 15px; }
