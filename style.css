@@ -44,9 +44,9 @@ body:has(.cta-shell:focus-within) .hero-media { transform: scale(1.06); }
 .bar {
   position: fixed;
   z-index: 20;
-  top: 12px;
-  left: var(--inset);
-  right: var(--inset);
+  top: 32px;
+  left: 36px;
+  right: 36px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -140,9 +140,9 @@ h1 span { display: block; white-space: nowrap; }
   justify-self: end;
   align-self: start;
   margin: 10px 0 0;
-  max-width: 380px;
-  color: rgba(255, 255, 255, 0.82);
-  font-size: 17px;
+  max-width: 400px;
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 19px;
   font-weight: 500;
   line-height: 1.6;
 }
@@ -266,6 +266,7 @@ h1 span { display: block; white-space: nowrap; }
   .hero-lede { grid-column: 1; grid-row: 2; justify-self: start; max-width: 100%; margin-top: 18px; font-size: 15px; }
   .cta-shell { grid-row: 4; }
   .wordmark { font-size: 20px; }
+  .bar { top: 30px; left: 34px; right: 34px; }
   /* 縦長の絵では字が鏡の明るい所に重なるので、上の幕を少し深くする */
   .hero-scrim {
     background:
@@ -282,10 +283,10 @@ h1 span { display: block; white-space: nowrap; }
 .reveal { opacity: 0; filter: blur(10px); transform: translateY(12px); transition: opacity 700ms var(--ease-out), filter 700ms var(--ease-out), transform 700ms var(--ease-out); }
 .reveal.in { opacity: 1; filter: none; transform: none; }
 
-.eyebrow { margin: 0 0 14px; color: var(--sub); font-size: 13px; font-weight: 600; letter-spacing: 0.08em; }
+.eyebrow { margin: 0 0 16px; color: var(--bronze-ink); font-size: 15px; font-weight: 600; letter-spacing: 0.08em; }
 br.m { display: none; }
-h2 { margin: 0 0 20px; font-family: var(--serif-jp); font-weight: 300; font-size: 34px; line-height: 1.4; letter-spacing: 0.01em; color: var(--ink); text-wrap: balance; }
-.why p, .how-head p, .step p { margin: 0 0 14px; color: var(--body); font-size: 17px; line-height: 1.75; font-weight: 400; }
+h2 { margin: 0 0 24px; font-family: var(--serif-jp); font-weight: 300; font-size: 44px; line-height: 1.35; letter-spacing: 0.01em; color: var(--ink); text-wrap: balance; }
+.why p, .how-head p, .step p { margin: 0 0 16px; color: var(--body); font-size: 19px; line-height: 1.75; font-weight: 400; }
 
 /* 2 なぜ: 左に文、右に絵 */
 .why {
@@ -314,9 +315,9 @@ h2 { margin: 0 0 20px; font-family: var(--serif-jp); font-weight: 300; font-size
   border-radius: var(--radius);
 }
 .fact-row li { display: flex; flex-direction: column; gap: 8px; }
-.fact-num { font-family: var(--serif-en); font-weight: 300; font-size: 48px; line-height: 1; color: var(--ink); font-variant-numeric: tabular-nums; }
-.fact-word { font-family: var(--serif-jp); font-size: 40px; }
-.fact-label { color: var(--sub); font-size: 14px; line-height: 1.6; }
+.fact-num { font-family: var(--sans); font-weight: 500; font-size: 52px; line-height: 1; color: var(--ink); letter-spacing: -0.02em; font-variant-numeric: lining-nums tabular-nums; }
+.fact-word { font-family: var(--sans); font-weight: 500; font-size: 44px; }
+.fact-label { color: var(--sub); font-size: 16px; line-height: 1.6; }
 .fact-note { margin: 12px 8px 0; color: var(--sub); font-size: 12px; line-height: 1.6; }
 
 /* 3 どう働くか: 三つの段、本物の iPhone の縁（Apple の Product Bezels・iPhone 17 Pro シルバー）の中で本物が動く【SR・10/21「iPhone 実機の素材感」】
@@ -325,8 +326,8 @@ h2 { margin: 0 0 20px; font-family: var(--serif-jp); font-weight: 300; font-size
 .how-head { max-width: 520px; margin: 0 auto 48px; text-align: center; }
 .steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
 .step { display: flex; flex-direction: column; align-items: flex-start; }
-.step h3 { margin: 8px 0 6px; font-size: 19px; font-weight: 600; color: var(--ink); line-height: 1.4; }
-.step p { font-size: 15px; line-height: 1.7; }
+.step h3 { margin: 10px 0 8px; font-size: 22px; font-weight: 600; color: var(--ink); line-height: 1.4; }
+.step p { font-size: 17px; line-height: 1.7; }
 .step-num {
   display: inline-flex; align-items: center; justify-content: center;
   width: 28px; height: 28px; margin-top: 24px;
@@ -367,7 +368,7 @@ h2 { margin: 0 0 20px; font-family: var(--serif-jp); font-weight: 300; font-size
   .why { grid-template-columns: 1fr; gap: 28px; margin-top: 64px; padding: 0 22px; }
   .why-text { max-width: 100%; }
   .why-media { aspect-ratio: 4 / 3; }
-  h2 { font-size: 28px; }
+  h2 { font-size: 32px; }
   .fact-row { grid-template-columns: 1fr; padding: 28px 24px; gap: 24px; }
   .how { margin-top: 80px; }
   .steps { grid-template-columns: 1fr; gap: 40px; }
@@ -378,36 +379,36 @@ h2 { margin: 0 0 20px; font-family: var(--serif-jp); font-weight: 300; font-size
 /* 4 使い続けると: 三枚のカード（絵・題・一文） */
 .grow { max-width: 1024px; margin: 128px auto 0; padding: 0 var(--inset); }
 .grow-head { max-width: 560px; margin: 0 auto 48px; text-align: center; }
-.grow-head p, .compare-head p { margin: 0; color: var(--body); font-size: 17px; line-height: 1.75; }
+.grow-head p, .compare-head p { margin: 0; color: var(--body); font-size: 19px; line-height: 1.75; }
 .grow-cards { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .grow-cards li { display: flex; flex-direction: column; background: #efefef; border-radius: var(--radius); overflow: hidden; }
 .card-media { aspect-ratio: 4 / 3; overflow: hidden; }
 .card-media img { display: block; width: 100%; height: 100%; object-fit: cover; }
-.grow-cards h3 { margin: 22px 24px 8px; font-size: 18px; font-weight: 600; color: var(--ink); line-height: 1.4; }
-.grow-cards p { margin: 0 24px 26px; color: var(--body); font-size: 15px; line-height: 1.7; }
-.grow-close { max-width: 560px; margin: 40px auto 0; text-align: center; font-family: var(--serif-jp); font-weight: 300; font-size: 22px; line-height: 1.6; color: var(--ink); }
+.grow-cards h3 { margin: 24px 26px 8px; font-size: 21px; font-weight: 600; color: var(--ink); line-height: 1.4; }
+.grow-cards p { margin: 0 26px 28px; color: var(--body); font-size: 17px; line-height: 1.7; }
+.grow-close { max-width: 560px; margin: 40px auto 0; text-align: center; font-family: var(--serif-jp); font-weight: 300; font-size: 26px; line-height: 1.6; color: var(--ink); }
 
 /* 5 比較（Norma の「How Norma compares」）: OMIT. の列だけ色を持つ */
 .compare { max-width: 1024px; margin: 128px auto 0; padding: 0 var(--inset); }
 .compare-head { max-width: 560px; margin: 0 auto 40px; text-align: center; }
 .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; border-radius: var(--radius); background: #efefef; }
-.compare-table { width: 100%; min-width: 720px; border-collapse: collapse; font-size: 14px; }
+.compare-table { width: 100%; min-width: 720px; border-collapse: collapse; font-size: 16px; }
 .compare-table th, .compare-table td { padding: 16px 18px; text-align: center; vertical-align: middle; border-top: 1px solid rgba(42, 42, 42, 0.08); }
-.compare-table thead th { border-top: 0; padding-top: 22px; padding-bottom: 14px; color: var(--sub); font-weight: 600; font-size: 13px; }
+.compare-table thead th { border-top: 0; padding-top: 22px; padding-bottom: 14px; color: var(--sub); font-weight: 600; font-size: 15px; }
 .compare-table th[scope="row"] { text-align: left; color: var(--ink); font-weight: 500; width: 40%; line-height: 1.5; }
 .compare-table .col-omit { background: rgba(169, 111, 74, 0.10); }
 .compare-table thead .col-omit { color: var(--bronze-ink); font-family: var(--serif-en); font-weight: 400; font-size: 20px; letter-spacing: 0.5px; }
 .compare-table tbody tr:first-child td, .compare-table tbody tr:first-child th { border-top: 1px solid rgba(42, 42, 42, 0.08); }
 .yes { display: inline-flex; width: 26px; height: 26px; align-items: center; justify-content: center; border-radius: 50%; background: var(--bronze); color: #fff; font-size: 14px; font-weight: 700; }
 .no { color: #b5b5b5; font-size: 16px; }
-.part { color: var(--sub); font-size: 12px; }
+.part { color: var(--sub); font-size: 14px; }
 .compare-note { margin: 12px 8px 0; color: var(--sub); font-size: 12px; line-height: 1.6; }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
 @media (max-width: 760px) {
   .grow, .compare { margin-top: 80px; }
   .grow-cards { grid-template-columns: 1fr; }
-  .grow-close { font-size: 19px; }
+  .grow-close { font-size: 21px; }
   br.m { display: inline; }
   h2 { text-wrap: initial; }
   /* 表は横に送れる。行の名の列は左に貼り付いたまま */
@@ -453,9 +454,9 @@ h2 { margin: 0 0 20px; font-family: var(--serif-jp); font-weight: 300; font-size
 .who-media { border-radius: var(--radius); overflow: hidden; aspect-ratio: 4 / 5; }
 .who-media img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .who-text { max-width: 440px; justify-self: end; }
-.who-text p { margin: 0 0 14px; color: var(--body); font-size: 17px; line-height: 1.75; }
+.who-text p { margin: 0 0 16px; color: var(--body); font-size: 19px; line-height: 1.75; }
 .depths { list-style: none; margin: 24px 0 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
-.depths li { display: flex; align-items: center; gap: 12px; color: var(--ink); font-size: 15px; }
+.depths li { display: flex; align-items: center; gap: 12px; color: var(--ink); font-size: 17px; }
 .depths span { display: inline-flex; width: 26px; height: 26px; align-items: center; justify-content: center; border-radius: 50%; background: var(--bronze); color: #fff; font-size: 12px; font-weight: 600; flex: 0 0 auto; }
 
 @media (hover: hover) and (pointer: fine) {
@@ -473,20 +474,20 @@ h2 { margin: 0 0 20px; font-family: var(--serif-jp); font-weight: 300; font-size
 /* 8 値段: 二本の札。年は十か月分（2026-09-18 の決定）。数字は仮置き */
 .price { max-width: 1024px; margin: 128px auto 0; padding: 0 var(--inset); }
 .price-head { max-width: 560px; margin: 0 auto 40px; text-align: center; }
-.price-head p { margin: 0; color: var(--body); font-size: 17px; line-height: 1.75; }
+.price-head p { margin: 0; color: var(--body); font-size: 19px; line-height: 1.75; }
 .plans { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 760px; margin: 0 auto; }
 .plan { position: relative; background: #efefef; border-radius: var(--radius); padding: 36px 32px 32px; display: flex; flex-direction: column; align-items: flex-start; }
 .plan-year { background: rgba(169, 111, 74, 0.10); }
 .plan-badge { position: absolute; top: 18px; right: 18px; margin: 0; padding: 6px 12px; border-radius: 1000px; background: var(--bronze); color: #fff; font-size: 12px; font-weight: 600; }
-.plan-name { margin: 0 0 10px; color: var(--sub); font-size: 14px; font-weight: 600; }
-.plan-price { margin: 0; font-family: var(--serif-en); font-weight: 400; font-size: 56px; line-height: 1; color: var(--ink); letter-spacing: 0.5px; font-variant-numeric: tabular-nums; }
-.plan-price .yen { font-size: 30px; margin-right: 2px; vertical-align: 10px; }
-.plan-price .per { font-family: var(--sans); font-size: 15px; font-weight: 500; color: var(--sub); margin-left: 6px; }
-.plan-note { margin: 12px 0 24px; color: var(--sub); font-size: 13px; line-height: 1.6; }
+.plan-name { margin: 0 0 12px; color: var(--sub); font-size: 16px; font-weight: 600; }
+.plan-price { margin: 0; font-family: var(--sans); font-weight: 500; font-size: 56px; line-height: 1; color: var(--ink); letter-spacing: -0.02em; font-variant-numeric: lining-nums tabular-nums; }
+.plan-price .yen { font-size: 28px; margin-right: 4px; vertical-align: 14px; font-weight: 500; }
+.plan-price .per { font-family: var(--sans); font-size: 17px; font-weight: 500; color: var(--sub); margin-left: 6px; }
+.plan-note { margin: 14px 0 26px; color: var(--sub); font-size: 15px; line-height: 1.6; }
 .plan .pill { margin-top: auto; height: 50px; padding: 0 24px; font-size: 15px; }
 .pill.ghost { background: #fff; color: var(--ink); box-shadow: inset 0 0 0 1px rgba(42, 42, 42, 0.12); }
 .pill.ghost:hover { background: #fff; box-shadow: inset 0 0 0 1px rgba(42, 42, 42, 0.3); }
-.price-lines { list-style: none; margin: 28px auto 0; padding: 0; display: flex; justify-content: center; flex-wrap: wrap; gap: 8px 28px; color: var(--sub); font-size: 13px; }
+.price-lines { list-style: none; margin: 28px auto 0; padding: 0; display: flex; justify-content: center; flex-wrap: wrap; gap: 8px 28px; color: var(--sub); font-size: 15px; }
 .price-lines li::before { content: "✓"; margin-right: 8px; color: var(--bronze); font-weight: 700; }
 
 /* 9 よくある質問（Norma の「Questions, answered.」） */
@@ -494,16 +495,16 @@ h2 { margin: 0 0 20px; font-family: var(--serif-jp); font-weight: 300; font-size
 .faq-head { text-align: center; margin-bottom: 32px; }
 .faq-list details { border-top: 1px solid rgba(42, 42, 42, 0.1); }
 .faq-list details:last-child { border-bottom: 1px solid rgba(42, 42, 42, 0.1); }
-.faq-list summary { list-style: none; cursor: pointer; padding: 20px 40px 20px 4px; position: relative; color: var(--ink); font-size: 17px; font-weight: 600; line-height: 1.5; }
+.faq-list summary { list-style: none; cursor: pointer; padding: 20px 40px 20px 4px; position: relative; color: var(--ink); font-size: 19px; font-weight: 600; line-height: 1.5; }
 .faq-list summary::-webkit-details-marker { display: none; }
 .faq-list summary::after { content: ""; position: absolute; right: 10px; top: 50%; width: 10px; height: 10px; border-right: 1.5px solid var(--sub); border-bottom: 1.5px solid var(--sub); transform: translateY(-70%) rotate(45deg); transition: transform 280ms var(--ease-out); }
 .faq-list details[open] summary::after { transform: translateY(-30%) rotate(225deg); }
-.faq-list p { margin: 0; padding: 0 4px 22px; color: var(--body); font-size: 15px; line-height: 1.75; }
+.faq-list p { margin: 0; padding: 0 4px 24px; color: var(--body); font-size: 17px; line-height: 1.75; }
 
 /* 10 締め: 一文と、同じ釦 */
 .close { max-width: 1024px; margin: 128px auto 0; padding: 0 var(--inset); display: flex; flex-direction: column; align-items: center; text-align: center; }
 .close-mark { margin: 0 0 18px; font-family: var(--serif-en); font-weight: 300; font-size: 28px; letter-spacing: 1px; color: var(--ink); }
-.close h2 { font-size: 40px; margin-bottom: 36px; }
+.close h2 { font-size: 48px; margin-bottom: 40px; }
 .close .cta-shell { grid-column: auto; grid-row: auto; }
 
 @media (max-width: 760px) {
@@ -512,5 +513,5 @@ h2 { margin: 0 0 20px; font-family: var(--serif-jp); font-weight: 300; font-size
   .plan { padding: 30px 24px 26px; }
   .plan-badge { position: static; align-self: flex-start; margin-bottom: 14px; }
   .plan-price { font-size: 46px; }
-  .close h2 { font-size: 30px; }
+  .close h2 { font-size: 32px; }
 }
