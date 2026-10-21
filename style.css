@@ -418,3 +418,24 @@ h2 { margin: 0 0 20px; font-family: var(--serif-jp); font-weight: 300; font-size
   .compare-table thead th { font-size: 12px; }
   .compare-table thead .col-omit { font-size: 18px; }
 }
+
+/* カードは、乗せるとぽこんと浮く【SR・10/21「エレガントな美しいダイナミックな」】
+   持ち上がり（-10px）＋わずかな拡大（1.02）を、Sabbath の釦と同じ行き過ぎて戻る曲線で。影は伸び、中の絵はもう少し寄る */
+@media (hover: hover) and (pointer: fine) {
+  .grow-cards li, .why-media, .phone {
+    transition: transform 420ms var(--ease-spring), box-shadow 420ms var(--ease-out);
+    will-change: transform;
+  }
+  .grow-cards li:hover, .why-media:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 40px 80px -24px rgba(0, 0, 0, 0.28), 0 12px 28px -12px rgba(0, 0, 0, 0.12);
+  }
+  .card-media img, .why-media img { transition: transform 900ms var(--ease-out); }
+  .grow-cards li:hover .card-media img, .why-media:hover img { transform: scale(1.05); }
+  .phone:hover { transform: translateY(-10px) scale(1.02); }
+  .phone .bezel { transition: filter 420ms var(--ease-out); }
+  .phone:hover .bezel { filter: drop-shadow(0 48px 70px rgba(0, 0, 0, 0.3)); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .grow-cards li, .why-media, .phone, .card-media img, .why-media img, .phone .bezel { transition: none; }
+}
