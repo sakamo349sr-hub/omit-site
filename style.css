@@ -283,6 +283,7 @@ h1 span { display: block; white-space: nowrap; }
 .reveal.in { opacity: 1; filter: none; transform: none; }
 
 .eyebrow { margin: 0 0 14px; color: var(--sub); font-size: 13px; font-weight: 600; letter-spacing: 0.08em; }
+br.m { display: none; }
 h2 { margin: 0 0 20px; font-family: var(--serif-jp); font-weight: 300; font-size: 34px; line-height: 1.4; letter-spacing: 0.01em; color: var(--ink); text-wrap: balance; }
 .why p, .how-head p, .step p { margin: 0 0 14px; color: var(--body); font-size: 17px; line-height: 1.75; font-weight: 400; }
 
@@ -407,5 +408,13 @@ h2 { margin: 0 0 20px; font-family: var(--serif-jp); font-weight: 300; font-size
   .grow, .compare { margin-top: 80px; }
   .grow-cards { grid-template-columns: 1fr; }
   .grow-close { font-size: 19px; }
-  .compare-table th[scope="row"] { width: 44%; }
+  br.m { display: inline; }
+  h2 { text-wrap: initial; }
+  /* 表は横に送れる。行の名の列は左に貼り付いたまま */
+  .compare-table { min-width: 640px; font-size: 13px; }
+  .compare-table th, .compare-table td { padding: 14px 12px; }
+  .compare-table th[scope="row"] { width: 170px; min-width: 170px; position: sticky; left: 0; background: #efefef; z-index: 1; font-size: 13px; box-shadow: 1px 0 0 rgba(42, 42, 42, 0.08); }
+  .compare-table thead th:first-child { position: sticky; left: 0; background: #efefef; z-index: 1; }
+  .compare-table thead th { font-size: 12px; }
+  .compare-table thead .col-omit { font-size: 18px; }
 }
