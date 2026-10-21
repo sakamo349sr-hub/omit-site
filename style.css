@@ -318,7 +318,8 @@ h2 { margin: 0 0 20px; font-family: var(--serif-jp); font-weight: 300; font-size
 .fact-label { color: var(--sub); font-size: 14px; line-height: 1.6; }
 .fact-note { margin: 12px 8px 0; color: var(--sub); font-size: 12px; line-height: 1.6; }
 
-/* 3 どう働くか: 三つの段、iPhone の形の中で本物が動く */
+/* 3 どう働くか: 三つの段、本物の iPhone の縁（Apple の Product Bezels・iPhone 17 Pro シルバー）の中で本物が動く【SR・10/21「iPhone 実機の素材感」】
+   縁の画像は 1350×2760。画面の透明な穴は x 72〜1277・y 70〜2689（1206×2620＝iPhone 17 Pro の画面）。穴の角の丸みは約 170px。測った値は保管庫 records/dev/土台_ホームページ/試し/2026-10-21_2と3の節/ */
 .how { max-width: 1024px; margin: 128px auto 0; padding: 0 var(--inset); }
 .how-head { max-width: 520px; margin: 0 auto 48px; text-align: center; }
 .steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
@@ -334,14 +335,20 @@ h2 { margin: 0 0 20px; font-family: var(--serif-jp); font-weight: 300; font-size
 .phone {
   position: relative;
   width: 100%;
-  aspect-ratio: 9 / 19.5;
-  background: #111;
-  border-radius: 44px;
-  padding: 10px;
-  box-sizing: border-box;
-  box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.35), inset 0 0 0 2px rgba(255, 255, 255, 0.08);
+  aspect-ratio: 1350 / 2760;
 }
-.phone video { display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 36px; background: #000; }
+.phone .bezel {
+  position: absolute; inset: 0; z-index: 2;
+  display: block; width: 100%; height: 100%;
+  pointer-events: none;
+  filter: drop-shadow(0 30px 50px rgba(0, 0, 0, 0.22));
+}
+.phone video {
+  position: absolute; z-index: 1;
+  left: 5.333%; top: 2.536%; width: 89.333%; height: 94.928%;
+  display: block; object-fit: cover; background: #000;
+  border-radius: 14.1% / 6.5%;
+}
 .how-cta { display: flex; justify-content: center; margin-top: 56px; }
 .how-cta .cta-shell { grid-column: auto; grid-row: auto; }
 .pill {
