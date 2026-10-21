@@ -277,3 +277,91 @@ h1 span { display: block; white-space: nowrap; }
 @media (prefers-reduced-motion: reduce) {
   .cta, .cta-text, .cta-qr, .blurable, .bar-cta { transition: none; }
 }
+
+/* ===== 下の節（Norma の作り: 幅 1024・節の間 64〜128・見出し 34/600・本文 17/500） ===== */
+.reveal { opacity: 0; filter: blur(10px); transform: translateY(12px); transition: opacity 700ms var(--ease-out), filter 700ms var(--ease-out), transform 700ms var(--ease-out); }
+.reveal.in { opacity: 1; filter: none; transform: none; }
+
+.eyebrow { margin: 0 0 14px; color: var(--sub); font-size: 13px; font-weight: 600; letter-spacing: 0.08em; }
+h2 { margin: 0 0 20px; font-family: var(--serif-jp); font-weight: 300; font-size: 34px; line-height: 1.4; letter-spacing: 0.01em; color: var(--ink); text-wrap: balance; }
+.why p, .how-head p, .step p { margin: 0 0 14px; color: var(--body); font-size: 17px; line-height: 1.75; font-weight: 400; }
+
+/* 2 なぜ: 左に文、右に絵 */
+.why {
+  max-width: 1024px;
+  margin: 96px auto 0;
+  padding: 0 var(--inset);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+.why-text { max-width: 440px; }
+.why-media { border-radius: var(--radius); overflow: hidden; aspect-ratio: 4 / 5; }
+.why-media img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+/* 数字の列（Norma の「Your phone is engineered for engagement」の位置） */
+.facts { max-width: 1024px; margin: 64px auto 0; padding: 0 var(--inset); }
+.fact-row {
+  list-style: none;
+  margin: 0;
+  padding: 40px 48px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  background: #efefef;
+  border-radius: var(--radius);
+}
+.fact-row li { display: flex; flex-direction: column; gap: 8px; }
+.fact-num { font-family: var(--serif-en); font-weight: 300; font-size: 48px; line-height: 1; color: var(--ink); font-variant-numeric: tabular-nums; }
+.fact-word { font-family: var(--serif-jp); font-size: 40px; }
+.fact-label { color: var(--sub); font-size: 14px; line-height: 1.6; }
+.fact-note { margin: 12px 8px 0; color: var(--sub); font-size: 12px; line-height: 1.6; }
+
+/* 3 どう働くか: 三つの段、iPhone の形の中で本物が動く */
+.how { max-width: 1024px; margin: 128px auto 0; padding: 0 var(--inset); }
+.how-head { max-width: 520px; margin: 0 auto 48px; text-align: center; }
+.steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+.step { display: flex; flex-direction: column; align-items: flex-start; }
+.step h3 { margin: 8px 0 6px; font-size: 19px; font-weight: 600; color: var(--ink); line-height: 1.4; }
+.step p { font-size: 15px; line-height: 1.7; }
+.step-num {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 28px; height: 28px; margin-top: 24px;
+  border-radius: 50%; background: var(--bronze); color: #fff;
+  font-size: 13px; font-weight: 600;
+}
+.phone {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 9 / 19.5;
+  background: #111;
+  border-radius: 44px;
+  padding: 10px;
+  box-sizing: border-box;
+  box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.35), inset 0 0 0 2px rgba(255, 255, 255, 0.08);
+}
+.phone video { display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 36px; background: #000; }
+.how-cta { display: flex; justify-content: center; margin-top: 56px; }
+.pill {
+  display: inline-flex; align-items: center; justify-content: center;
+  height: 56px; padding: 0 28px;
+  color: #fff; background: var(--bronze); border-radius: 1000px;
+  font-size: 17px; font-weight: 600; text-decoration: none;
+  transition: background-color 150ms ease;
+}
+.pill:hover { background: var(--bronze-ink); }
+
+.foot { margin-top: 96px; }
+
+@media (max-width: 760px) {
+  .why { grid-template-columns: 1fr; gap: 28px; margin-top: 64px; }
+  .why-text { max-width: 100%; }
+  .why-media { aspect-ratio: 4 / 3; }
+  h2 { font-size: 28px; }
+  .fact-row { grid-template-columns: 1fr; padding: 28px 24px; gap: 24px; }
+  .how { margin-top: 80px; }
+  .steps { grid-template-columns: 1fr; gap: 40px; }
+  .phone { width: 78%; align-self: center; }
+  .step h3, .step p { align-self: stretch; }
+}
