@@ -290,7 +290,7 @@ h2 { margin: 0 0 20px; font-family: var(--serif-jp); font-weight: 300; font-size
 .why {
   max-width: 1024px;
   margin: 96px auto 0;
-  padding: 0 var(--inset);
+  padding: 0 var(--inset) 0 48px;   /* 文の左の余白 ＝ 文と写真の間（48）【SR・10/21】 */
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 48px;
@@ -343,6 +343,7 @@ h2 { margin: 0 0 20px; font-family: var(--serif-jp); font-weight: 300; font-size
 }
 .phone video { display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 36px; background: #000; }
 .how-cta { display: flex; justify-content: center; margin-top: 56px; }
+.how-cta .cta-shell { grid-column: auto; grid-row: auto; }
 .pill {
   display: inline-flex; align-items: center; justify-content: center;
   height: 56px; padding: 0 28px;
@@ -355,7 +356,7 @@ h2 { margin: 0 0 20px; font-family: var(--serif-jp); font-weight: 300; font-size
 .foot { margin-top: 96px; }
 
 @media (max-width: 760px) {
-  .why { grid-template-columns: 1fr; gap: 28px; margin-top: 64px; }
+  .why { grid-template-columns: 1fr; gap: 28px; margin-top: 64px; padding: 0 22px; }
   .why-text { max-width: 100%; }
   .why-media { aspect-ratio: 4 / 3; }
   h2 { font-size: 28px; }
