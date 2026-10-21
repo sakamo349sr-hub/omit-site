@@ -373,3 +373,39 @@ h2 { margin: 0 0 20px; font-family: var(--serif-jp); font-weight: 300; font-size
   .phone { width: 78%; align-self: center; }
   .step h3, .step p { align-self: stretch; }
 }
+
+/* 4 使い続けると: 三枚のカード（絵・題・一文） */
+.grow { max-width: 1024px; margin: 128px auto 0; padding: 0 var(--inset); }
+.grow-head { max-width: 560px; margin: 0 auto 48px; text-align: center; }
+.grow-head p, .compare-head p { margin: 0; color: var(--body); font-size: 17px; line-height: 1.75; }
+.grow-cards { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.grow-cards li { display: flex; flex-direction: column; background: #efefef; border-radius: var(--radius); overflow: hidden; }
+.card-media { aspect-ratio: 4 / 3; overflow: hidden; }
+.card-media img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.grow-cards h3 { margin: 22px 24px 8px; font-size: 18px; font-weight: 600; color: var(--ink); line-height: 1.4; }
+.grow-cards p { margin: 0 24px 26px; color: var(--body); font-size: 15px; line-height: 1.7; }
+.grow-close { max-width: 560px; margin: 40px auto 0; text-align: center; font-family: var(--serif-jp); font-weight: 300; font-size: 22px; line-height: 1.6; color: var(--ink); }
+
+/* 5 比較（Norma の「How Norma compares」）: OMIT. の列だけ色を持つ */
+.compare { max-width: 1024px; margin: 128px auto 0; padding: 0 var(--inset); }
+.compare-head { max-width: 560px; margin: 0 auto 40px; text-align: center; }
+.table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; border-radius: var(--radius); background: #efefef; }
+.compare-table { width: 100%; min-width: 720px; border-collapse: collapse; font-size: 14px; }
+.compare-table th, .compare-table td { padding: 16px 18px; text-align: center; vertical-align: middle; border-top: 1px solid rgba(42, 42, 42, 0.08); }
+.compare-table thead th { border-top: 0; padding-top: 22px; padding-bottom: 14px; color: var(--sub); font-weight: 600; font-size: 13px; }
+.compare-table th[scope="row"] { text-align: left; color: var(--ink); font-weight: 500; width: 40%; line-height: 1.5; }
+.compare-table .col-omit { background: rgba(169, 111, 74, 0.10); }
+.compare-table thead .col-omit { color: var(--bronze-ink); font-family: var(--serif-en); font-weight: 400; font-size: 20px; letter-spacing: 0.5px; }
+.compare-table tbody tr:first-child td, .compare-table tbody tr:first-child th { border-top: 1px solid rgba(42, 42, 42, 0.08); }
+.yes { display: inline-flex; width: 26px; height: 26px; align-items: center; justify-content: center; border-radius: 50%; background: var(--bronze); color: #fff; font-size: 14px; font-weight: 700; }
+.no { color: #b5b5b5; font-size: 16px; }
+.part { color: var(--sub); font-size: 12px; }
+.compare-note { margin: 12px 8px 0; color: var(--sub); font-size: 12px; line-height: 1.6; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+@media (max-width: 760px) {
+  .grow, .compare { margin-top: 80px; }
+  .grow-cards { grid-template-columns: 1fr; }
+  .grow-close { font-size: 19px; }
+  .compare-table th[scope="row"] { width: 44%; }
+}
