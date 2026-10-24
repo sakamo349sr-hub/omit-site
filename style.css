@@ -285,21 +285,21 @@ h1 span { display: block; white-space: nowrap; }
 
 br.m { display: none; }
 h2 { margin: 0 0 24px; font-family: var(--serif-jp); font-weight: 400; font-size: 44px; line-height: 1.35; letter-spacing: 0; color: var(--ink); text-wrap: balance; }
-.why p, .how-head p, .step p { margin: 0 0 16px; color: var(--body); font-size: 19px; line-height: 1.75; font-weight: 400; }
+.how-head p, .step p { margin: 0 0 16px; color: var(--body); font-size: 19px; line-height: 1.75; font-weight: 400; }
 
-/* 2 なぜ: 左に文、右に絵 */
-.why {
-  max-width: 1024px;
-  margin: 96px auto 0;
-  padding: 0 var(--inset) 0 48px;   /* 文の左の余白 ＝ 文と写真の間（48）【SR・10/21】 */
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 48px;
-  align-items: center;
+/* 2 宣言（mymind の OUR MANIFESTO を測った: 幅 855 で本文 28/行 44・左寄せの一段・幅 約 600・写真なし）。
+   日本語は行を広く（1.9）、一行 25 字前後に収まる幅 */
+.manifesto { max-width: 1024px; margin: 144px auto 0; padding: 0 var(--inset); }
+.manifesto-text { max-width: 660px; margin: 0 auto; }
+.manifesto-text p {
+  margin: 0 0 1.4em;
+  font-family: var(--serif-jp); font-weight: 400;
+  font-size: 26px; line-height: 1.9; letter-spacing: 0.02em;
+  color: var(--ink);
+  line-break: strict;
+  text-align: justify;   /* 句で折ると右端が崩れた。日本語の本の組み方で、行の両端をそろえる */
 }
-.why-text { max-width: 480px; }
-.why-media { border-radius: var(--radius); overflow: hidden; aspect-ratio: 4 / 5; }
-.why-media img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.manifesto-text p:last-child { margin-bottom: 0; }
 
 /* 3 どう働くか: 三つの段、本物の iPhone の縁（Apple の Product Bezels・iPhone 17 Pro シルバー）の中で本物が動く【SR・10/21「iPhone 実機の素材感」】
    縁の画像は 1350×2760。画面の透明な穴は x 72〜1277・y 70〜2689（1206×2620＝iPhone 17 Pro の画面）。穴の角の丸みは約 170px。測った値は保管庫 records/dev/土台_ホームページ/試し/2026-10-21_2と3の節/ */
@@ -346,9 +346,8 @@ h2 { margin: 0 0 24px; font-family: var(--serif-jp); font-weight: 400; font-size
 .foot { margin-top: 96px; }
 
 @media (max-width: 760px) {
-  .why { grid-template-columns: 1fr; gap: 28px; margin-top: 64px; padding: 0 22px; }
-  .why-text { max-width: 100%; }
-  .why-media { aspect-ratio: 4 / 3; }
+  .manifesto { margin-top: 88px; padding: 0 22px; }
+  .manifesto-text p { font-size: 20px; line-height: 1.95; letter-spacing: 0.01em; }
   h2 { font-size: 32px; }
   .how { margin-top: 80px; }
   .steps { grid-template-columns: 1fr; gap: 40px; }
@@ -403,22 +402,22 @@ h2 { margin: 0 0 24px; font-family: var(--serif-jp); font-weight: 400; font-size
 /* カードは、乗せるとぽこんと浮く【SR・10/21「エレガントな美しいダイナミックな」】
    持ち上がり（-10px）＋わずかな拡大（1.02）を、Sabbath の釦と同じ行き過ぎて戻る曲線で。影は伸び、中の絵はもう少し寄る */
 @media (hover: hover) and (pointer: fine) {
-  .grow-cards li, .why-media, .phone {
+  .grow-cards li, .phone {
     transition: transform 420ms var(--ease-spring), box-shadow 420ms var(--ease-out);
     will-change: transform;
   }
-  .grow-cards li:hover, .why-media:hover {
+  .grow-cards li:hover {
     transform: translateY(-10px) scale(1.02);
     box-shadow: 0 40px 80px -24px rgba(0, 0, 0, 0.28), 0 12px 28px -12px rgba(0, 0, 0, 0.12);
   }
-  .card-media img, .why-media img { transition: transform 900ms var(--ease-out); }
-  .grow-cards li:hover .card-media img, .why-media:hover img { transform: scale(1.05); }
+  .card-media img { transition: transform 900ms var(--ease-out); }
+  .grow-cards li:hover .card-media img { transform: scale(1.05); }
   .phone:hover { transform: translateY(-10px) scale(1.02); }
   .phone .bezel { transition: filter 420ms var(--ease-out); }
   .phone:hover .bezel { filter: drop-shadow(0 48px 70px rgba(0, 0, 0, 0.3)); }
 }
 @media (prefers-reduced-motion: reduce) {
-  .grow-cards li, .why-media, .phone, .card-media img, .why-media img, .phone .bezel { transition: none; }
+  .grow-cards li, .phone, .card-media img, .phone .bezel { transition: none; }
 }
 
 /* 8 値段: 二本の札。年は十か月分（2026-09-18 の決定）。数字は仮置き */
