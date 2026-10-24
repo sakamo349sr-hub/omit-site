@@ -528,6 +528,149 @@ h2 { margin: 0 0 24px; font-family: var(--serif-jp); font-weight: 400; font-size
 .st-stage.is-narrow .st-tcap { font-size: 11px; }
 .st-stage.is-narrow .st-chips { gap: 8px; }
 .st-stage.is-narrow .st-chips span { height: 38px; padding: 0 20px; font-size: 14px; }
+
+/* 機能の一覧（SR 同意の六つ・止まった絵 第4稿のまま・2026-10-25）。組み方は mymind の機能の塊を測った物【SR「mymind…を参考にすべきでしょう」】:
+   幅の違う二枚を一段に並べて下の端をそろえる（上の端がずれる）・段ごとに広い方と狭い方を入れ替える・中の大半を、本物の部品と本物の写真を重ねた絵に・大きな題。
+   色は mymind から取らず OMIT. の色だけ: 頁の板の灰 #EFEFEF と、ブロンズの 10%（年の値段の札・比べる表の OMIT. の列と同じ）を互い違いに【SR「色は真似ないで欲しかった」】。
+   中の絵は決まった大きさ（狭い 313×392・広い 479×300・スマホ 306）で描き、features.js が板の幅に合わせて縮める。部品の値はアプリ（~/projects/OMIT.-2/src/front/tokens.ts と parts/）のまま */
+.fb { margin: 0 auto; }
+.fb-row { display: flex; gap: 40px; align-items: flex-end; }
+.fb-row + .fb-row { margin-top: 40px; }
+.fb-card { box-sizing: border-box; border-radius: var(--radius); padding: 40px; overflow: hidden; }
+.fb-card.n { flex: 0 0 calc((100% - 40px) * 0.413); }
+.fb-card.w { flex: 1 1 0; min-width: 0; }
+.fb-tone-grey { background: #efefef; }
+.fb-tone-bronze { background: rgba(169, 111, 74, 0.10); }
+.fb-fit { position: relative; }
+.fb-card.n .fb-fit { height: 392px; }
+.fb-card.w .fb-fit { height: 300px; }
+.fb-vis { position: absolute; left: 0; top: 0; transform-origin: 0 0; }
+.fb-card.n .fb-vis { width: 313px; height: 392px; }
+.fb-card.w .fb-vis { width: 479px; height: 300px; }
+.fb-card h3 { margin: 32px 0 12px; color: #1f1f1f; font-size: 30px; font-weight: 600; line-height: 1.35; letter-spacing: 0.01em; }
+.fb-card > p { margin: 0; color: #555; font-size: 17px; line-height: 1.75; }
+.fb-card p span, .fb-card h3 span { display: inline-block; }   /* 句の途中で折らない */
+.fb .fb-vis > * { position: absolute; }
+.fb .lift { box-shadow: 0 24px 48px -16px rgba(0, 0, 0, 0.18), 0 4px 12px rgba(0, 0, 0, 0.05); }
+/* アプリの値（tokens.ts） */
+.fb { --a-ink: #2a2a2a; --a-body: #3a3a3a; --a-sub: #666666; --a-faint: #999999; --a-rule: #eeedeb; --a-rule2: #e0dfdd; --a-stage: #f5f4f2; --a-warm: #8a7256;
+      --a-own: "Noto Serif JP", "Hiragino Mincho ProN", serif; }
+.fb .fb-vis * { box-sizing: border-box; }
+.fb .fb-vis p { margin: 0; }
+.fb .a-ownSmall { font-family: var(--a-own); font-weight: 300; font-size: 13px; line-height: 21px; color: var(--a-body); }
+.fb .a-partTitle { font: 600 17px/22px var(--sans); letter-spacing: 0.2px; color: var(--a-ink); }
+.fb .a-sheetName { font: 400 17px/24px var(--sans); color: var(--a-ink); }
+.fb .a-caption { font: 400 12px/17px var(--sans); letter-spacing: 0.3px; color: var(--a-faint); }
+.fb .a-title { font: 400 19px/26px var(--sans); letter-spacing: 0.2px; color: var(--a-ink); }
+.fb .a-value { font: 400 15px/20px var(--sans); color: var(--a-ink); }
+.fb .a-summary { font: 300 14px/22px var(--sans); color: var(--a-body); }
+.fb .a-heading { font: 500 15px/22px var(--sans); letter-spacing: 0.3px; color: var(--a-ink); }
+.fb .a-card { background: #ffffff; border-radius: 22px; padding: 20px; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04); }
+.fb .a-thumb { position: relative; flex: 0 0 auto; border-radius: 14px; overflow: hidden; background: linear-gradient(#dcc4b5, #e3d0c4 55%, #f1e8e2); display: flex; align-items: center; justify-content: center; }
+.fb .a-thumb img { display: block; max-width: 72%; max-height: 72%; }   /* CutoutStage の inset 0.14 */
+.fb .a-chip { display: inline-flex; align-items: center; gap: 5px; padding: 5px 11px; border-radius: 100px; border: 1px solid var(--a-rule); background: #ffffff; font: 400 12px/17px var(--sans); letter-spacing: 0.6px; color: var(--a-sub); white-space: nowrap; }
+.fb svg.i { width: 11px; height: 11px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.fb .a-hand { display: inline-flex; align-items: center; min-height: 44px; padding: 8px 16px; border-radius: 100px; border: 1px solid var(--a-rule2); background: #ffffff; font: 400 13px/18px var(--sans); letter-spacing: 0.4px; color: var(--a-ink); }
+/* 1 話しながら調べる — 見せるの景色の窓・Listening・OMIT. の一言 */
+.fb .v1-photo { left: 0; top: 0; width: 100%; height: 280px; border-radius: 22px; background: url(assets/scene1/room.webp) 81.6% 52% / 228% auto no-repeat; }
+.fb .v1-listen { left: 14px; top: 14px; display: flex; align-items: center; gap: 8px; height: 30px; padding: 0 13px 0 11px; border-radius: 999px; background: rgba(255, 255, 255, 0.82); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); font: 400 13px/1 var(--sans); color: var(--a-ink); }
+.fb .v1-listen i { position: relative; width: 8px; height: 8px; border-radius: 50%; background: var(--bronze); }
+.fb .v1-listen i::after { content: ""; position: absolute; inset: -4px; border-radius: 50%; background: rgba(169, 111, 74, 0.22); }
+.fb .v1-says { left: 34px; right: 0; top: 236px; background: #ffffff; border-radius: 20px; padding: 16px 18px 18px; }
+.fb .v1-omit { display: flex; align-items: center; gap: 7px; margin-bottom: 9px; font: 600 12px/1 var(--sans); letter-spacing: 0.04em; color: #8f8f8f; }
+.fb .v1-omit i { width: 7px; height: 7px; border-radius: 50%; background: #b8915f; }
+.fb .v1-says p { font: 400 15px/1.7 var(--sans); color: var(--a-ink); }
+/* 2 決めたことを覚える — Home の Last time と、手放すと決めた物 */
+.fb .v2-card { left: 0; top: 0; width: 292px; padding-bottom: 6px; }
+.fb .v2-head { display: flex; align-items: baseline; justify-content: space-between; }
+.fb .v2-head span:first-child { font: 400 15px/21px var(--sans); color: var(--a-ink); }
+.fb .v2-dec { padding: 13px 0; }
+.fb .v2-dec + .v2-dec { border-top: 1px solid var(--a-rule); }
+.fb .v2-row { display: flex; align-items: center; gap: 12px; }
+.fb .v2-row .a-thumb { width: 44px; height: 44px; }
+.fb .v2-text { min-width: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 6px; }
+.fb .v2-words { margin-top: 10px; padding-left: 56px; }
+.fb .v2-radio { right: 4px; top: 52px; width: 176px; filter: drop-shadow(0 18px 18px rgba(60, 40, 20, 0.22)); }
+.fb .v2-radio img { display: block; width: 100%; }
+.fb .v2-chip { right: 26px; top: 196px; }
+/* 3 後でと言った物が戻ってくる — Home の Waiting（二枚を間 12 で縦に・重ねない） */
+.fb .v3-title { left: 0; top: 0; }
+.fb .v3-list { left: 0; top: 34px; width: 100%; max-width: 400px; display: flex; flex-direction: column; gap: 12px; }
+.fb .v3-card { display: flex; flex-direction: column; gap: 14px; }
+.fb .v3-row { display: flex; align-items: center; gap: 14px; }
+.fb .v3-row .a-thumb { width: 56px; height: 56px; }
+.fb .v3-text { min-width: 0; display: flex; flex-direction: column; gap: 3px; }
+.fb .v3-words { display: flex; flex-direction: column; gap: 4px; }
+/* 4 今日の一枚 — 物のカードの台と、OMIT. の推測（違えば消せます・消す） */
+.fb .v4-thing { left: 0; top: 0; width: 186px; padding: 8px 8px 16px; }
+.fb .v4-plate { aspect-ratio: 1.3; border-radius: 14px; background: linear-gradient(#dcc4b5, #e3d0c4 55%, #f1e8e2); display: flex; align-items: center; justify-content: center; }
+.fb .v4-plate img { display: block; height: 78%; }
+.fb .v4-thing .a-sheetName { margin: 12px 8px 8px; font-size: 15px; line-height: 22px; }
+.fb .v4-thing .a-chip { margin-left: 8px; }
+.fb .v4-guess { right: 0; top: 212px; width: 196px; padding: 16px; }
+.fb .v4-guess .a-sheetName { margin-top: 10px; }
+.fb .v4-guess .a-hand { margin-top: 12px; }
+/* 5 物ごとの頁と九つの空間 — Spaces の空間のカードと、物の頁の「これまで」 */
+.fb .v5-space { left: 0; top: 0; width: 100%; aspect-ratio: 1.5; border-radius: 22px; overflow: hidden; background: var(--a-stage); }
+.fb .v5-space img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.fb .v5-space::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(42, 42, 42, 0.62), rgba(42, 42, 42, 0) 62%); }
+.fb .v5-space div { position: absolute; left: 20px; right: 20px; bottom: 16px; z-index: 1; }
+.fb .v5-space b { display: block; font: 600 22px/29px var(--sans); letter-spacing: 0.3px; color: #ffffff; }
+.fb .v5-space small { display: block; margin-top: 2px; font: 400 13px/19px var(--sans); letter-spacing: 0.2px; color: rgba(255, 255, 255, 0.86); }
+.fb .v5-story { left: 46px; right: 0; top: 200px; padding: 18px 18px 14px; }
+.fb .v5-step { display: flex; gap: 12px; }
+.fb .v5-rail { width: 26px; display: flex; flex-direction: column; align-items: center; }
+.fb .v5-node { width: 26px; height: 26px; border-radius: 50%; background: var(--a-stage); display: flex; align-items: center; justify-content: center; color: var(--a-sub); }
+.fb .v5-line { flex: 1; width: 1.5px; margin: 3px 0; background: var(--a-rule2); }
+.fb .v5-main { flex: 1; min-width: 0; padding-top: 2px; }
+.fb .v5-main.gap { padding-bottom: 14px; }
+.fb .v5-headline { display: flex; align-items: baseline; gap: 8px; }
+.fb .v5-headline span:first-child { font: 400 14px/20px var(--sans); color: var(--a-ink); }
+.fb .v5-main .a-ownSmall { margin-top: 4px; }
+/* 6 入れた物に名前と要約 — 共有した写真と囲む弧（場面2 と同じ）、外から入れた物の頁 */
+.fb .v6-pic { left: 0; top: 0; width: 240px; height: 300px; border-radius: 22px; overflow: hidden; }
+.fb .v6-pic img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 80%; }
+.fb .v6-pic svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.fb .v6-pic .arc-n { display: none; }
+.fb .v6-item { right: 0; top: 22px; width: 286px; padding: 18px 18px 16px; }
+.fb .v6-maker { display: flex; align-items: center; gap: 16px; margin-top: 6px; }
+.fb .v6-maker .a-caption { color: var(--a-body); }
+.fb .v6-site { display: inline-flex; align-items: center; gap: 2px; font: 400 12px/17px var(--sans); letter-spacing: 0.3px; color: var(--a-warm); }
+.fb .v6-sum { position: relative; margin-top: 12px; padding-top: 8px; }
+.fb .v6-sum-line { border-radius: 12px; padding: 1.2px; background: linear-gradient(135deg, #e7b183, #bd855b 50%, #92593a); }
+.fb .v6-sum-box { border-radius: 10.8px; background: #ffffff; padding: 15px 14px 13px; }
+.fb .v6-sum-box .a-caption { margin-top: 6px; }
+.fb .v6-sum > span { position: absolute; top: 0; left: 8px; padding: 0 6px; background: #ffffff; font: 400 12px/17px var(--sans); letter-spacing: 0.3px; color: var(--a-warm); }
+.fb .v6-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.fb .v6-tags span { display: inline-flex; align-items: center; gap: 4px; padding: 6px 12px; border-radius: 100px; border: 1px solid var(--a-stage); background: var(--a-stage); font: 400 13px/18px var(--sans); letter-spacing: 0.2px; color: var(--a-sub); }
+.fb .v6-tags .add { border-color: rgba(178, 148, 96, 0.5); background: #ffffff; color: var(--a-warm); }
+.fb .v6-tags svg { width: 12px; height: 12px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
+/* スマホ（幅 760 以下）: 一列に（mymind も一列）。広い板の絵は縦に組み直す */
+@media (max-width: 760px) {
+  .fb-row { flex-direction: column; align-items: stretch; gap: 20px; }
+  .fb-row + .fb-row { margin-top: 20px; }
+  .fb-card { padding: 26px; }
+  .fb-card.n, .fb-card.w { flex: none; }
+  .fb-card h3 { margin-top: 26px; font-size: 25px; }
+  .fb-card > p { font-size: 16px; }
+  .fb-card.n .fb-vis, .fb-card.w .fb-vis { width: 306px; }
+  .fb-card.w .fb-fit { height: 360px; }
+  .fb-card.w .fb-vis { height: 360px; }
+  .fb-card.w .fb-fit.v3, .fb-card.w .fb-vis.v3 { height: 300px; }
+  .fb-card.w .fb-fit.v6, .fb-card.w .fb-vis.v6 { height: 452px; }
+  /* 2: Last time を上に、ラジカセと札を右下に重ねる */
+  .fb .v2-card { width: 100%; }
+  .fb .v2-radio { right: 0; top: auto; bottom: 26px; width: 140px; }
+  .fb .v2-chip { right: 6px; top: auto; bottom: 0; }
+  /* 6: 写真を上に横長に（椅子が真ん中に来る切り取り）、頁をその下に。横に重ねると椅子が隠れた */
+  .fb .v6-pic { width: 100%; height: auto; aspect-ratio: 306 / 200; }
+  .fb .v6-pic img { object-position: 50% 83%; }
+  .fb .v6-pic .arc-w { display: none; }
+  .fb .v6-pic .arc-n { display: block; }
+  .fb .v6-item { top: 184px; width: 100%; padding: 16px 16px 14px; }
+  .fb .v6-item .a-title { font-size: 17px; line-height: 24px; }
+  .fb .v6-item .a-summary { font-size: 13px; line-height: 20px; }
+}
 .pill {
   display: inline-flex; align-items: center; justify-content: center;
   height: 56px; padding: 0 28px;
