@@ -8,4 +8,4 @@
 - QR `assets/app-store-qr.svg` は `tools/make_qr.py` で作る（行き先の住所は中に書いてある）
 
 見る: `python3 -m http.server 8765` でこのフォルダを配り、http://localhost:8765/ を開く。
-- iPhone の縁 `assets/iphone-17-pro-silver.png` は Apple の Design Resources「Product Bezels」（Bezel-iPhone-17.dmg・2026-10-21 に取得）の iPhone 17 Pro シルバー縦。許諾（Apple Design Resources License）は、Apple の OS で動くソフトの画面の見本を作り、その見本を画面写しや絵として見せる用途に限る。縁の絵は切らず、色も変えず、Android の画面には使わない。許諾の原文は保管庫 records/dev/土台_ホームページ/試し/2026-10-21_2と3の節/Appleの縁/
+- どう働くかの三つの場面は、録画でなく頁の中で時刻から描く動き（`scene-show.js`・`scene-like.js`・`scene-store.js`・素材は `assets/scene1〜3/`）。写真は Unsplash（Unsplash ライセンス）で、撮った人の名前と頁は index.html の各場面の注に書いてある。前の iPhone の縁（Apple の Product Bezels）と録画は 2026-10-25 に外した

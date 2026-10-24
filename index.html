@@ -15,7 +15,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&family=Noto+Serif+JP:wght@300;400;600&display=swap">
-<link rel="stylesheet" href="style.css?v=28">
+<link rel="stylesheet" href="style.css?v=29">
 </head>
 <body>
 
@@ -141,14 +141,37 @@
         </div>
       </div>
     </div>
-    <ol class="steps steps-1 blurable">
-      <li class="step">
-        <div class="phone"><video src="assets/clips/store.mp4" muted loop playsinline autoplay preload="metadata"></video><img class="bezel" src="assets/iphone-17-pro-silver.png" alt="" width="1350" height="2760" loading="lazy"></div>
+    <!-- 三つ目の場面 店で迷ったら見せる（SR の同意 2026-10-25: 一行 A・止まった絵 四コマ・動き 第1版）。動きは scene-store.js。
+         写真は Miles Chang（Unsplash・Unsplash ライセンス）https://unsplash.com/photos/pKnYQhJNfog 。品物の名前は見本（作り手や型の名は書かない）。
+         家にある物は一つ目の場面の PH 3/2、前に入れた写真は二つ目の場面の三枚（Bilal Mansuri・Franco Debartolo・Kellen Riggin） -->
+    <div class="scene blurable">
+      <div class="scene-text">
         <span class="step-num">3</span>
-        <h3>店で迷ったら、見せる</h3>
-        <p>家の物とあなたの言葉を並べて、OMIT. が提案を一つ。買うかどうかは、あなたが決めます。</p>
-      </li>
-    </ol>
+        <h3>店で迷ったら見せる</h3>
+        <p><span>店で迷ったら品物を見せるだけ。</span><span>家にある物とあなたの言葉が並び、</span><span>合うか、どこがずれるかが分かる。</span></p>
+      </div>
+      <div class="st">
+        <div class="st-fit" role="img" aria-label="店で迷った品物を見せると、家にある物とあなたの言葉が並び、合うか、どこがずれるかが分かる様子">
+          <div class="st-stage" aria-hidden="true">
+            <div class="st-cam"><div class="st-ph"></div><div class="st-flash"></div><div class="st-shutter"><i></i></div></div>
+            <div class="st-sheet">
+              <div class="st-thumb st-hthumb"></div>
+              <div class="st-name">真鍮のキノコ形ランプ</div>
+              <div class="st-date">10月25日に店で見た</div>
+              <div class="st-lhome">家にある物</div>
+              <div class="st-home"><div class="st-thumb"><img src="assets/scene1/lamp.webp" alt=""></div><div><b>PH 3/2 テーブルランプ</b><q><span>夕方、</span><span>このランプの下がいちばん好き。</span></q><small>リビング</small></div></div>
+              <div class="st-omit"><i></i>OMIT.</div>
+              <p class="st-says"><span>夕方の灯りは、</span><span>もう PH 3/2 が担っています。</span><span>真鍮の暖かい色は</span><span>斜めの陽と木の温もりに合いますが、</span><span>強い艶は少し主張が強く見えます。</span></p>
+              <div class="st-tastes"><div><img src="assets/scene2/hero.webp" alt=""></div><div><img src="assets/scene2/f90.webp" alt=""></div><div><img src="assets/scene2/f47.webp" alt=""></div></div>
+              <div class="st-tcap">前に入れた写真・斜めの陽と木の温もり</div>
+              <div class="st-chips"><span><em>買う</em></span><span><em>保留</em></span><span><em>やめる</em></span></div>
+            </div>
+            <div class="st-brass"><img src="assets/scene3/brass.webp" alt=""></div>
+            <div class="st-touch"></div>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="how-cta">
       <div class="cta-shell">
         <a class="cta" href="https://apps.apple.com/jp/app/id6792730242" target="_blank" rel="noopener noreferrer" aria-label="App Store で OMIT. を手に入れる">
@@ -307,6 +330,7 @@
 
 <script src="scene-show.js?v=1" defer></script>
 <script src="scene-like.js?v=2" defer></script>
+<script src="scene-store.js?v=1" defer></script>
 <script>
   // 節は、ぼけた状態から焦点が合うように現れる（Norma: opacity と blur 10px を 0.7 秒）
   (function () {
