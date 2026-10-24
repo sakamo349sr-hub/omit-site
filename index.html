@@ -15,7 +15,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&family=Noto+Serif+JP:wght@300;400;600&display=swap">
-<link rel="stylesheet" href="style.css?v=24">
+<link rel="stylesheet" href="style.css?v=27">
 </head>
 <body>
 
@@ -68,13 +68,30 @@
       <h2 id="how-title">見せて、話すだけ。</h2>
       <p>OMIT. が見て、覚えて、見立てを言う。決めるのはあなた。</p>
     </div>
-    <ol class="steps blurable">
-      <li class="step">
-        <div class="phone"><video src="assets/clips/show.mp4" muted loop playsinline autoplay preload="metadata"></video><img class="bezel" src="assets/iphone-17-pro-silver.png" alt="" width="1350" height="2760" loading="lazy"></div>
+    <!-- 一つ目の場面 家を見せる（SR の同意 2026-10-24: 伝えること一行・止まった絵 五コマ・動き 第1版）。動きは scene-show.js。
+         写真は Taitopia Render（Unsplash・Unsplash ライセンス）https://unsplash.com/photos/2yhtDlDns6o 。ランプは Louis Poulsen の PH 3/2 -->
+    <div class="scene blurable">
+      <div class="scene-text">
         <span class="step-num">1</span>
         <h3>家を見せる</h3>
-        <p>スマホを回しながら、声で話す。OMIT. が物と、あなたの言葉を覚えます。</p>
-      </li>
+        <p><span>部屋を映して話すと、</span><span>話した物が、</span><span>ひと押しで</span><span>あなたの言葉ごと</span><span>カードになる。</span></p>
+      </div>
+      <div class="ss">
+        <div class="ss-fit" role="img" aria-label="部屋を映して話すと、話した物が、ひと押しであなたの言葉ごとカードになる様子">
+          <div class="ss-stage" aria-hidden="true">
+            <div class="ss-win"><div class="ss-photo"></div><div class="ss-flash"></div><div class="ss-wipe"></div></div>
+            <div class="ss-listen"><i></i>Listening</div>
+            <p class="ss-words"><span>「夕方、</span><span>このランプの下が</span><span>いちばん好き。」</span></p>
+            <div class="ss-offer"><span class="ss-name">PH 3/2 テーブルランプ</span><span class="ss-btn"><svg viewBox="0 0 24 24" fill="none" stroke="#2a2a2a" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M14.3 3.3 9.6 11.4M20.2 8.5h-9.3M17.6 18.2 12.9 10M9.7 20.7l4.6-8.1M3.8 15.5h9.3M6.4 5.8l4.7 8.1"/></svg>カードにする</span></div>
+            <div class="ss-touch"></div>
+            <div class="ss-br"><b></b><b></b><b></b><b></b></div>
+            <div class="ss-card"><div class="ss-plate"></div><p class="ss-nm">PH 3/2 テーブルランプ</p><p class="ss-own">「夕方、このランプの下が<br>いちばん好き。」</p><p class="ss-dt">10月24日</p></div>
+            <div class="ss-lamp"><img src="assets/scene1/lamp.webp" alt="" width="465" height="759"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <ol class="steps steps-2 blurable">
       <li class="step">
         <div class="phone"><video src="assets/clips/inlet.mp4" muted loop playsinline autoplay preload="metadata"></video><img class="bezel" src="assets/iphone-17-pro-silver.png" alt="" width="1350" height="2760" loading="lazy"></div>
         <span class="step-num">2</span>
@@ -244,6 +261,7 @@
   <a href="https://sakamo349sr-hub.github.io/omit-legal/tokushoho/">特定商取引法に基づく表記</a>
 </footer>
 
+<script src="scene-show.js?v=1" defer></script>
 <script>
   // 節は、ぼけた状態から焦点が合うように現れる（Norma: opacity と blur 10px を 0.7 秒）
   (function () {

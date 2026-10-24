@@ -341,6 +341,65 @@ h2 { margin: 0 0 24px; font-family: var(--serif-jp); font-weight: 400; font-size
 }
 .how-cta { display: flex; justify-content: center; margin-top: 56px; }
 .how-cta .cta-shell { grid-column: auto; grid-row: auto; }
+
+/* 一つ目の場面 家を見せる（scene-show.js が時刻から描く）。手本は mymind の一機能一画面。二つ目と三つ目は動きができるまで iPhone の録画で下に並べる */
+.scene { margin: 0 auto 96px; }
+.scene-text { max-width: 560px; margin: 0 auto 28px; text-align: center; }
+.scene-text .step-num { margin-top: 0; }
+.scene-text h3 { margin: 12px 0 8px; font-size: 22px; font-weight: 600; color: var(--ink); line-height: 1.4; }
+.scene-text p { margin: 0; color: var(--body); font-size: 17px; line-height: 1.7; text-wrap: balance; }
+.scene-text p span { display: inline-block; }   /* 句の途中で折らない（「ひと／押し」と折れた） */
+.steps-2 { grid-template-columns: repeat(2, 1fr); max-width: 680px; margin: 0 auto; }
+
+/* 舞台。寸法と位置は scene-show.js が二つの組み方（横長 760×650・縦長 360×490）から置き、幅に合わせて縮める。値はアプリの見た目のまま */
+.ss-fit { position: relative; width: 100%; max-width: 760px; margin: 0 auto; overflow: hidden; aspect-ratio: 760 / 650; }
+.ss-stage { position: absolute; left: 0; top: 0; width: 760px; height: 650px; transform-origin: 0 0; }
+.ss-stage > * { position: absolute; will-change: transform, opacity; }
+.ss-win { border-radius: var(--radius); overflow: hidden; background: #222; transform: translateZ(0); }
+.ss-win > * { position: absolute; }
+.ss-photo { inset: 0; background: url(assets/scene1/room.webp) no-repeat; }
+.ss-flash { inset: 0; background: #fff; opacity: 0; }
+.ss-wipe { top: 0; bottom: 0; left: 0; background: linear-gradient(to right, #f4f1ee calc(100% - 46px), rgba(244, 241, 238, 0)); transform: translateX(-200%); }
+.ss-lamp { transform-origin: 0 0; opacity: 0; z-index: 4; }
+.ss-lamp img { display: block; width: 100%; height: 100%; }
+.ss-listen { left: 60px; top: 44px; display: flex; align-items: center; gap: 8px; height: 32px; padding: 0 14px 0 12px; border-radius: 999px;
+  background: rgba(255, 255, 255, 0.82); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); color: var(--ink); font-size: 14px; opacity: 0; z-index: 3; }
+.ss-listen i { position: relative; width: 9px; height: 9px; border-radius: 50%; background: var(--bronze); }
+.ss-listen i::after { content: ""; position: absolute; inset: -4px; border-radius: 50%; background: rgba(169, 111, 74, 0.22); opacity: var(--pulse, 0); }
+.ss-words { left: 0; right: 0; margin: 0; text-align: center; font-family: var(--serif-jp); font-weight: 400; font-size: 20px; line-height: 1.6; letter-spacing: 0.02em; color: var(--ink); }
+.ss-words span { display: inline-block; opacity: 0; }
+.ss-offer { display: flex; flex-direction: column; align-items: center; gap: 8px; z-index: 3; }
+.ss-name { padding: 3px 10px; border-radius: 999px; background: rgba(0, 0, 0, 0.32); color: #fff; font-size: 13px; line-height: 15px; opacity: 0; }
+.ss-btn { display: flex; align-items: center; gap: 8px; height: 44px; padding: 0 22px; border-radius: 999px; background: #fff; color: var(--ink); font-size: 16px; box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18); opacity: 0; }
+.ss-btn svg { width: 17px; height: 17px; }
+.ss-touch { width: 46px; height: 46px; margin: -23px 0 0 -23px; border-radius: 50%; background: rgba(42, 42, 42, 0.16);
+  box-shadow: 0 0 0 9px rgba(42, 42, 42, 0.07), inset 0 0 0 1.5px rgba(255, 255, 255, 0.7); opacity: 0; z-index: 5; }
+.ss-br { opacity: 0; z-index: 5; }
+.ss-br b { position: absolute; width: 22px; height: 22px; border: 0 solid #fff; filter: drop-shadow(0 0 1.5px rgba(0, 0, 0, 0.35)); }
+.ss-br b:nth-child(1) { left: 0; top: 0; border-top-width: 2px; border-left-width: 2px; border-top-left-radius: 6px; }
+.ss-br b:nth-child(2) { right: 0; top: 0; border-top-width: 2px; border-right-width: 2px; border-top-right-radius: 6px; }
+.ss-br b:nth-child(3) { left: 0; bottom: 0; border-bottom-width: 2px; border-left-width: 2px; border-bottom-left-radius: 6px; }
+.ss-br b:nth-child(4) { right: 0; bottom: 0; border-bottom-width: 2px; border-right-width: 2px; border-bottom-right-radius: 6px; }
+.ss-card { box-sizing: border-box; padding: 10px 10px 22px; border-radius: 24px; background: #fff;
+  box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.22), 0 8px 20px -10px rgba(0, 0, 0, 0.12); opacity: 0; transform-origin: 50% 0; z-index: 3; }
+.ss-plate { border-radius: 16px; background: linear-gradient(#dcc4b5, #e3d0c4 55%, #f1e8e2); }
+.ss-card p { margin: 0; opacity: 0; }
+.ss-card .ss-nm { margin: 16px 12px 0; color: var(--ink); font-size: 19px; font-weight: 500; line-height: 1.4; }
+.ss-card .ss-own { margin: 10px 12px 0; padding-top: 10px; border-top: 1px solid rgba(42, 42, 42, 0.1); font-family: var(--serif-jp); font-size: 15px; line-height: 1.7; color: var(--body); }
+.ss-card .ss-dt { margin: 10px 12px 0; color: #8a8a8a; font-size: 12px; line-height: 1.4; }
+/* 縦長の舞台（狭い画面）: 字と部品を一回り小さく */
+.ss-stage.is-narrow .ss-listen { left: 12px; top: 12px; height: 28px; padding: 0 12px 0 10px; font-size: 12px; gap: 7px; }
+.ss-stage.is-narrow .ss-listen i { width: 8px; height: 8px; }
+.ss-stage.is-narrow .ss-words { font-size: 15px; }
+.ss-stage.is-narrow .ss-name { font-size: 12px; line-height: 13px; }
+.ss-stage.is-narrow .ss-btn { height: 40px; padding: 0 18px; font-size: 15px; }
+.ss-stage.is-narrow .ss-touch { width: 40px; height: 40px; margin: -20px 0 0 -20px; }
+.ss-stage.is-narrow .ss-br b { width: 18px; height: 18px; }
+.ss-stage.is-narrow .ss-card { padding: 10px 10px 18px; border-radius: 20px; }
+.ss-stage.is-narrow .ss-plate { border-radius: 14px; }
+.ss-stage.is-narrow .ss-nm { margin: 14px 10px 0; font-size: 16px; }
+.ss-stage.is-narrow .ss-own { margin: 8px 10px 0; padding-top: 8px; font-size: 14px; }
+.ss-stage.is-narrow .ss-dt { margin: 8px 10px 0; font-size: 11px; }
 .pill {
   display: inline-flex; align-items: center; justify-content: center;
   height: 56px; padding: 0 28px;
