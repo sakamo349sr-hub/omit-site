@@ -291,6 +291,13 @@ h2 { margin: 0 0 24px; font-family: var(--serif-jp); font-weight: 400; font-size
    日本語は行を広く（1.9）、一行 25 字前後に収まる幅 */
 .manifesto { max-width: 1024px; margin: 144px auto 0; padding: 0 var(--inset); }
 .manifesto-text { max-width: 660px; margin: 0 auto; }
+/* 小さな題（mymind の OUR MANIFESTO: ゴシックの半太 16・字間 2px・中央・本文の上 約 35）【SR・10/24「OMIT. MANIFESTO を置いて」】 */
+.manifesto-label {
+  margin: 0 0 40px;
+  font-family: var(--sans); font-weight: 600;
+  font-size: 15px; line-height: 1.4; letter-spacing: 0.16em;
+  color: var(--ink); text-align: center;
+}
 .manifesto-text p {
   margin: 0 0 1.4em;
   font-family: var(--serif-jp); font-weight: 400;
