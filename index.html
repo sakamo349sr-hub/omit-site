@@ -15,7 +15,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&family=Noto+Serif+JP:wght@300;400;600&display=swap">
-<link rel="stylesheet" href="style.css?v=20">
+<link rel="stylesheet" href="style.css?v=21">
 </head>
 <body>
 
@@ -59,15 +59,6 @@
     <div class="why-media blurable">
       <img src="assets/why.jpg" alt="トラバーチンの机の上に、クロームのランプ、布張りの本、素焼きの器が置かれている" width="1792" height="1024" loading="lazy">
     </div>
-  </section>
-
-  <section class="facts reveal" aria-label="空間についての数字">
-    <ul class="fact-row blurable">
-      <li><span class="fact-num" data-count="913" data-suffix="万回">0</span><span class="fact-label">日本の YouTube で、ルームツアーの最上位の再生数</span></li>
-      <li><span class="fact-num" data-count="1238" data-suffix="万回" data-comma="1">0</span><span class="fact-label">世界で、空っぽの部屋を作り替える動画の再生数</span></li>
-      <li><span class="fact-num fact-word">本人</span><span class="fact-label">自分で飾った場所の人が一番働きやすく、他人が上書きすると効果が減った</span></li>
-    </ul>
-    <p class="fact-note blurable">出典: 2026-09-11 の調査（YouTube の公開の再生数）／Knight &amp; Haslam, <i>Journal of Experimental Psychology: Applied</i>, 2010</p>
   </section>
 
   <!-- 3 どう働くか -->
@@ -167,23 +158,6 @@
     <p class="compare-note blurable">OMIT. の列は、OMIT. の決まりそのものです。ほかの列は、それぞれの種類の一般的な作りを指しています。</p>
   </section>
 
-  <!-- 7 誰に -->
-  <section class="who reveal" aria-labelledby="who-title">
-    <div class="who-media blurable">
-      <img src="assets/who.jpg" alt="ブークレの椅子と、クロームのランプと、トラバーチンの小さな机がある読書の隅" width="1792" height="1024" loading="lazy">
-    </div>
-    <div class="who-text blurable">
-      <h2 id="who-title">自分の空間を、<br>大切にしている人へ。</h2>
-      <p>自分の空間をより本質的なものにしたいと思っている人にも、既に自分の空間に誇りを持っている人にも。最初に誰か一人を選ぶことはしません。人で絞らず、引き受ける仕事を一つに絞ります。</p>
-      <p>どれだけ意図的になりたいかは、人それぞれです。好きか嫌いかを感じる。なぜ好きなのかを言える。素材や押し心地、作り手の歴史や設計の思想まで知って、関係を深める。どこまで行きたいかに合わせて、OMIT. が接し方を変えます。</p>
-      <ol class="depths">
-        <li><span>1</span>好きか嫌いかを、感じる</li>
-        <li><span>2</span>なぜ好きなのかを、言える</li>
-        <li><span>3</span>素材や作り手まで知って、関係を深める</li>
-      </ol>
-    </div>
-  </section>
-
   <!-- 8 値段（形は 2026-09-18 の決定: 月と年の二本・年は十か月分・二週間の無料の試用・売り切りはしない・切れた後も記録は見られる。数字は仮置き。出す前に SR が決める） -->
   <section class="price reveal" aria-labelledby="price-title">
     <div class="price-head blurable">
@@ -270,22 +244,13 @@
 </footer>
 
 <script>
-  // 節は、ぼけた状態から焦点が合うように現れる（Norma: opacity と blur 10px を 0.7 秒）。数字は見えた時に数える
+  // 節は、ぼけた状態から焦点が合うように現れる（Norma: opacity と blur 10px を 0.7 秒）
   (function () {
-    var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var fmt = function (n, el) { var s = String(n); if (el.dataset.comma) s = s.replace(/\B(?=(\d{3})+(?!\d))/g, ','); return s + (el.dataset.suffix || ''); };
-    var count = function (el) {
-      var to = +el.dataset.count, t0 = null, dur = 1400;
-      if (reduce) { el.textContent = fmt(to, el); return; }
-      var step = function (t) { if (!t0) t0 = t; var k = Math.min(1, (t - t0) / dur); k = 1 - Math.pow(1 - k, 3); el.textContent = fmt(Math.round(to * k), el); if (k < 1) requestAnimationFrame(step); };
-      requestAnimationFrame(step);
-    };
-    if (!('IntersectionObserver' in window)) { document.querySelectorAll('.reveal').forEach(function (e) { e.classList.add('in'); }); document.querySelectorAll('[data-count]').forEach(function (e) { e.textContent = fmt(+e.dataset.count, e); }); return; }
+    if (!('IntersectionObserver' in window)) { document.querySelectorAll('.reveal').forEach(function (e) { e.classList.add('in'); }); return; }
     var io = new IntersectionObserver(function (es) {
       es.forEach(function (x) {
         if (!x.isIntersecting) return;
         x.target.classList.add('in');
-        x.target.querySelectorAll('[data-count]').forEach(count);
         io.unobserve(x.target);
       });
     }, { rootMargin: '0px 0px -12% 0px', threshold: 0.15 });

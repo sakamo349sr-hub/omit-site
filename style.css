@@ -301,24 +301,6 @@ h2 { margin: 0 0 24px; font-family: var(--serif-jp); font-weight: 400; font-size
 .why-media { border-radius: var(--radius); overflow: hidden; aspect-ratio: 4 / 5; }
 .why-media img { display: block; width: 100%; height: 100%; object-fit: cover; }
 
-/* 数字の列（Norma の「Your phone is engineered for engagement」の位置） */
-.facts { max-width: 1024px; margin: 64px auto 0; padding: 0 var(--inset); }
-.fact-row {
-  list-style: none;
-  margin: 0;
-  padding: 40px 48px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
-  background: #efefef;
-  border-radius: var(--radius);
-}
-.fact-row li { display: flex; flex-direction: column; gap: 8px; }
-.fact-num { font-family: var(--serif-jp); font-weight: 400; font-size: 52px; line-height: 1; color: var(--ink); letter-spacing: 0.01em; font-variant-numeric: lining-nums tabular-nums; }
-.fact-word { font-family: var(--serif-jp); font-weight: 400; font-size: 46px; }
-.fact-label { color: var(--sub); font-size: 16px; line-height: 1.6; }
-.fact-note { margin: 12px 8px 0; color: var(--sub); font-size: 12px; line-height: 1.6; }
-
 /* 3 どう働くか: 三つの段、本物の iPhone の縁（Apple の Product Bezels・iPhone 17 Pro シルバー）の中で本物が動く【SR・10/21「iPhone 実機の素材感」】
    縁の画像は 1350×2760。画面の透明な穴は x 72〜1277・y 70〜2689（1206×2620＝iPhone 17 Pro の画面）。穴の角の丸みは約 170px。測った値は保管庫 records/dev/土台_ホームページ/試し/2026-10-21_2と3の節/ */
 .how { max-width: 1024px; margin: 128px auto 0; padding: 0 var(--inset); }
@@ -368,7 +350,6 @@ h2 { margin: 0 0 24px; font-family: var(--serif-jp); font-weight: 400; font-size
   .why-text { max-width: 100%; }
   .why-media { aspect-ratio: 4 / 3; }
   h2 { font-size: 32px; }
-  .fact-row { grid-template-columns: 1fr; padding: 28px 24px; gap: 24px; }
   .how { margin-top: 80px; }
   .steps { grid-template-columns: 1fr; gap: 40px; }
   .phone { width: 78%; align-self: center; }
@@ -438,36 +419,6 @@ h2 { margin: 0 0 24px; font-family: var(--serif-jp); font-weight: 400; font-size
 }
 @media (prefers-reduced-motion: reduce) {
   .grow-cards li, .why-media, .phone, .card-media img, .why-media img, .phone .bezel { transition: none; }
-}
-
-/* 7 誰に: 左に絵、右に文（2 の裏返し） */
-.who {
-  max-width: 1024px;
-  margin: 128px auto 0;
-  padding: 0 48px 0 var(--inset);
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 48px;
-  align-items: center;
-}
-.who-media { border-radius: var(--radius); overflow: hidden; aspect-ratio: 4 / 5; }
-.who-media img { display: block; width: 100%; height: 100%; object-fit: cover; }
-.who-text { max-width: 500px; justify-self: end; }
-.who-text p { margin: 0 0 16px; color: var(--body); font-size: 19px; line-height: 1.75; }
-.depths { list-style: none; margin: 24px 0 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
-.depths li { display: flex; align-items: center; gap: 12px; color: var(--ink); font-size: 17px; }
-.depths span { display: inline-flex; width: 26px; height: 26px; align-items: center; justify-content: center; border-radius: 50%; background: var(--bronze); color: #fff; font-size: 12px; font-weight: 600; flex: 0 0 auto; }
-
-@media (hover: hover) and (pointer: fine) {
-  .who-media { transition: transform 420ms var(--ease-spring), box-shadow 420ms var(--ease-out); will-change: transform; }
-  .who-media:hover { transform: translateY(-10px) scale(1.02); box-shadow: 0 40px 80px -24px rgba(0, 0, 0, 0.28), 0 12px 28px -12px rgba(0, 0, 0, 0.12); }
-  .who-media img { transition: transform 900ms var(--ease-out); }
-  .who-media:hover img { transform: scale(1.05); }
-}
-@media (max-width: 760px) {
-  .who { grid-template-columns: 1fr; gap: 28px; margin-top: 64px; padding: 0 22px; }
-  .who-media { aspect-ratio: 4 / 3; order: 2; }
-  .who-text { max-width: 100%; justify-self: start; order: 1; }
 }
 
 /* 8 値段: 二本の札。年は十か月分（2026-09-18 の決定）。数字は仮置き */
