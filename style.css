@@ -400,6 +400,92 @@ h2 { margin: 0 0 24px; font-family: var(--serif-jp); font-weight: 400; font-size
 .ss-stage.is-narrow .ss-nm { margin: 14px 10px 0; font-size: 16px; }
 .ss-stage.is-narrow .ss-own { margin: 8px 10px 0; padding-top: 8px; font-size: 14px; }
 .ss-stage.is-narrow .ss-dt { margin: 8px 10px 0; font-size: 11px; }
+
+/* 二つ目の場面 いいなと思った物を入れる（scene-like.js が時刻から描く）。寸法と位置は二つの組み方（横長 760×650・縦長 360×540）から置く。
+   部品はアプリの今の見た目のまま: 受け口・入れた瞬間の霧と一言・囲む白い弧と指先の金・物の台・テイストの頁 */
+.sl-fit { position: relative; width: 100%; max-width: 760px; margin: 0 auto; overflow: hidden; aspect-ratio: 760 / 650; }
+.sl-stage { position: absolute; left: 0; top: 0; width: 760px; height: 650px; transform-origin: 0 0; }
+.sl-stage > * { position: absolute; opacity: 0; will-change: transform, opacity; }
+.sl-ph { overflow: hidden; }
+.sl-ph img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.sl-float { border-radius: 14px; }
+.sl-hero { border-radius: 16px; box-shadow: 0 30px 60px -24px rgba(0, 0, 0, 0.35); }
+.sl-share { border-radius: 50%; background: rgba(255, 255, 255, 0.9); display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18); z-index: 2; }
+.sl-share svg { width: 46%; height: 46%; }
+.sl-touch { width: 46px; height: 46px; margin: -23px 0 0 -23px; border-radius: 50%; background: rgba(42, 42, 42, 0.16);
+  box-shadow: 0 0 0 9px rgba(42, 42, 42, 0.07), inset 0 0 0 1.5px rgba(255, 255, 255, 0.7); z-index: 20; }
+.sl-inlet { border-radius: var(--radius); background: #fff; box-shadow: 0 30px 70px -24px rgba(0, 0, 0, 0.32), 0 0 0 1px rgba(0, 0, 0, 0.04); z-index: 5; }
+.sl-inlet > * { position: absolute; }
+.sl-top { display: flex; align-items: center; gap: 10px; color: var(--ink); font-size: 15px; font-weight: 600; line-height: 1.25; }
+.sl-top img { width: 24px; height: 24px; }
+.sl-top small { display: block; color: #a0a0a0; font-size: 11px; font-weight: 400; }
+.sl-x { margin-left: auto; width: 30px; height: 30px; border-radius: 50%; background: #f0f0f0; display: flex; align-items: center; justify-content: center; color: #555; font-size: 14px; }
+.sl-pic { border-radius: 10px; overflow: hidden; }
+.sl-pic img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.sl-pic .sl-pic2 { object-position: 50% 80%; opacity: 0; }
+.sl-hint { left: 0; right: 0; text-align: center; color: #9a9a9a; font-size: 12px; }
+.sl-keep { border-radius: 999px; background: var(--bronze); color: #fff; font-size: 15px; font-weight: 600; display: flex; align-items: center; justify-content: center; }
+.sl-inlet svg { overflow: visible; }
+.sl-dark { inset: 0; background: #000; z-index: 8; }
+.sl-fog { inset: 0; z-index: 9; background:
+    radial-gradient(60% 50% at 18% 12%, rgba(245, 193, 149, 0.95), rgba(245, 193, 149, 0) 70%),
+    radial-gradient(55% 55% at 85% 28%, rgba(209, 153, 109, 0.95), rgba(209, 153, 109, 0) 70%),
+    radial-gradient(70% 60% at 30% 95%, rgba(124, 70, 42, 0.95), rgba(124, 70, 42, 0) 70%),
+    radial-gradient(60% 60% at 90% 95%, rgba(80, 35, 14, 0.85), rgba(80, 35, 14, 0) 70%),
+    linear-gradient(#c58b62, #a96f4a); }
+.sl-mark { z-index: 10; }
+.sl-said { left: 0; right: 0; margin: 0; text-align: center; color: #fff; font-family: var(--serif-jp); font-weight: 600; font-size: 36px; line-height: 1.35; letter-spacing: 0.02em; z-index: 10; }
+.sl-memo { box-sizing: border-box; border-radius: 999px; border: 1.5px solid rgba(255, 255, 255, 0.9); color: #fff; font-size: 15px; display: flex; align-items: center; justify-content: center; z-index: 10; }
+.sl-card { box-sizing: border-box; padding: 10px 10px 20px; border-radius: 24px; background: #fff;
+  box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.22), 0 8px 20px -10px rgba(0, 0, 0, 0.12); transform-origin: 50% 0; z-index: 12; }
+.sl-plate { border-radius: 16px; background: linear-gradient(#dcc4b5, #e3d0c4 55%, #f1e8e2); }
+.sl-card p { margin: 0; opacity: 0; }
+.sl-card .sl-nm { margin: 16px 12px 0; color: var(--ink); font-size: 19px; font-weight: 500; line-height: 1.4; }
+.sl-card .sl-mk { margin: 4px 12px 0; color: #8a8a8a; font-size: 13px; line-height: 1.4; }
+.sl-card .sl-own { margin: 12px 12px 0; padding-top: 10px; border-top: 1px solid rgba(42, 42, 42, 0.1); color: var(--body); font-family: var(--serif-jp); font-size: 14px; line-height: 1.7; }
+.sl-chair { transform-origin: 0 0; z-index: 13; }
+.sl-chair img { display: block; width: 100%; height: 100%; }
+.sl-fly { z-index: 3; }
+.sl-dots { display: flex; justify-content: center; gap: 7px; z-index: 4; }
+.sl-dots i { width: 6px; height: 6px; border-radius: 50%; background: rgba(255, 255, 255, 0.55); }
+.sl-dots i:first-child { background: #fff; }
+.sl-name { margin: 0; color: var(--ink); font-family: var(--serif-jp); font-weight: 400; font-size: 28px; line-height: 1.4; letter-spacing: 0.02em; }
+.sl-sp { color: #8a8a8a; font-size: 14px; }
+.sl-nums { display: flex; border-top: 1px solid rgba(42, 42, 42, 0.12); border-bottom: 1px solid rgba(42, 42, 42, 0.12); }
+.sl-nums div { flex: 1; padding: 9px 0 0 18px; color: #8a8a8a; font-size: 12px; border-left: 1px solid rgba(42, 42, 42, 0.12); }
+.sl-nums div:first-child { border-left: 0; padding-left: 0; }
+.sl-nums b { display: block; margin-top: 4px; color: var(--ink); font-size: 18px; font-weight: 400; }
+.sl-line { margin: 0; color: var(--body); font-family: var(--serif-jp); font-size: 16px; }
+.sl-band { display: flex; align-items: center; justify-content: space-between; border-top: 1px solid rgba(42, 42, 42, 0.1); }
+.sl-band span { color: #8a8a8a; font-size: 13px; }
+.sl-band span b { margin-right: 4px; color: var(--ink); font-size: 22px; font-weight: 500; }
+.sl-band em { height: 46px; padding: 0 30px; border-radius: 999px; background: var(--bronze); color: #fff; font-size: 15px; font-style: normal; display: flex; align-items: center; }
+/* 縦長の舞台（狭い画面）: 字と部品を一回り小さく */
+.sl-stage.is-narrow .sl-touch { width: 40px; height: 40px; margin: -20px 0 0 -20px; }
+.sl-stage.is-narrow .sl-inlet { border-radius: 24px; }
+.sl-stage.is-narrow .sl-top { font-size: 14px; gap: 8px; }
+.sl-stage.is-narrow .sl-top img { width: 22px; height: 22px; }
+.sl-stage.is-narrow .sl-top small { font-size: 10px; }
+.sl-stage.is-narrow .sl-x { width: 28px; height: 28px; font-size: 13px; }
+.sl-stage.is-narrow .sl-hint { font-size: 11px; }
+.sl-stage.is-narrow .sl-keep { font-size: 14px; }
+.sl-stage.is-narrow .sl-said { font-size: 28px; }
+.sl-stage.is-narrow .sl-memo { font-size: 14px; }
+.sl-stage.is-narrow .sl-card { padding: 10px 10px 18px; border-radius: 20px; }
+.sl-stage.is-narrow .sl-plate { border-radius: 14px; }
+.sl-stage.is-narrow .sl-nm { margin: 14px 10px 0; font-size: 16px; }
+.sl-stage.is-narrow .sl-mk { margin: 3px 10px 0; font-size: 12px; }
+.sl-stage.is-narrow .sl-own { margin: 10px 10px 0; padding-top: 8px; font-size: 13px; }
+.sl-stage.is-narrow .sl-name { font-size: 22px; }
+.sl-stage.is-narrow .sl-sp { font-size: 13px; }
+.sl-stage.is-narrow .sl-nums div { padding: 7px 0 0 12px; font-size: 11px; }
+.sl-stage.is-narrow .sl-nums div:first-child { padding-left: 0; }
+.sl-stage.is-narrow .sl-nums b { font-size: 16px; margin-top: 2px; }
+.sl-stage.is-narrow .sl-line { font-size: 14px; }
+.sl-stage.is-narrow .sl-band span { font-size: 12px; }
+.sl-stage.is-narrow .sl-band span b { font-size: 18px; }
+.sl-stage.is-narrow .sl-band em { height: 40px; padding: 0 22px; font-size: 14px; }
+.steps-1 { grid-template-columns: minmax(0, 340px); justify-content: center; }
 .pill {
   display: inline-flex; align-items: center; justify-content: center;
   height: 56px; padding: 0 28px;
