@@ -15,7 +15,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&family=Noto+Serif+JP:wght@300;400;600&display=swap">
-<link rel="stylesheet" href="style.css?v=31">
+<link rel="stylesheet" href="style.css?v=32">
 </head>
 <body>
 
@@ -172,6 +172,11 @@
         </div>
       </div>
     </div>
+    <!-- 機能の一覧の上の見出し（形は mymind の YOUR PRIVATE OASIS と大きな一文: 小さな題・二行の大きな明朝）。文は候補（SR の宣言の一文から・SR に聞いている） -->
+    <div class="fb-head blurable">
+      <p class="fb-label">OMIT. FEATURES</p>
+      <h2 class="fb-title"><span>あなたの家にある物と、</span><span><span>あなたが美しいと</span><span>感じるもの。</span></span></h2>
+    </div>
     <!-- 機能の一覧（SR 同意の六つ・止まった絵 第4稿・2026-10-25）。2.0 で動いている物だけ。組み方は mymind の機能の塊を手本に、色は OMIT. の色だけ。中の絵の大きさ合わせは features.js。
          写真: 部屋と PH 3/2 は Taitopia Render・椅子の部屋は Laura Davidson・真鍮のランプは Miles Chang（ここまで場面と同じ）・ラジカセは Anmol Arora・ブーツは Aurelien Thomas（どれも Unsplash・Unsplash ライセンス）。
          空間の絵（リビング）はアプリの九枚の一つ。中の物の名前・言葉・日付は見本 -->
@@ -253,8 +258,8 @@
         <div class="fb-card w fb-tone-bronze">
           <div class="fb-fit v6"><div class="fb-vis v6" aria-hidden="true">
             <div class="v6-pic lift"><img src="assets/scene2/chair_room.webp" alt="">
-              <svg class="arc-w" viewBox="0 0 300 375"><path d="M139 147 A105 105 0 1 1 40.3 216.1" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" style="filter: drop-shadow(0 0 2px rgba(0,0,0,.25))"/><circle cx="40.3" cy="216.1" r="16" fill="#d9b07a" opacity=".35"/><circle cx="40.3" cy="216.1" r="4.5" fill="#fff"/></svg>
-              <svg class="arc-n" viewBox="0 0 306 200"><path d="M141.8 -3.8 A107.1 107.1 0 1 1 41.1 66.7" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" style="filter: drop-shadow(0 0 2px rgba(0,0,0,.25))"/><circle cx="41.1" cy="66.7" r="13" fill="#d9b07a" opacity=".35"/><circle cx="41.1" cy="66.7" r="3.8" fill="#fff"/></svg></div>
+              <svg class="arc-w" viewBox="0 0 300 375"><path pathLength="1" d="M139 147 A105 105 0 1 1 40.3 216.1" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" style="filter: drop-shadow(0 0 2px rgba(0,0,0,.25))"/><circle cx="40.3" cy="216.1" r="16" fill="#d9b07a" opacity=".35"/><circle cx="40.3" cy="216.1" r="4.5" fill="#fff"/></svg>
+              <svg class="arc-n" viewBox="0 0 306 200"><path pathLength="1" d="M141.8 -3.8 A107.1 107.1 0 1 1 41.1 66.7" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" style="filter: drop-shadow(0 0 2px rgba(0,0,0,.25))"/><circle cx="41.1" cy="66.7" r="13" fill="#d9b07a" opacity=".35"/><circle cx="41.1" cy="66.7" r="3.8" fill="#fff"/></svg></div>
             <div class="a-card v6-item lift">
               <p class="a-title">ウィッシュボーンチェア</p>
               <div class="v6-maker"><span class="a-caption">Carl Hansen &amp; Søn</span><span class="v6-site">公式の頁<svg class="i" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></div>
@@ -426,7 +431,7 @@
 <script src="scene-show.js?v=1" defer></script>
 <script src="scene-like.js?v=2" defer></script>
 <script src="scene-store.js?v=1" defer></script>
-<script src="features.js?v=1" defer></script>
+<script src="features.js?v=2" defer></script>
 <script>
   // 節は、ぼけた状態から焦点が合うように現れる（Norma: opacity と blur 10px を 0.7 秒）
   (function () {
