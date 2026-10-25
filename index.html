@@ -434,7 +434,9 @@
 <script src="scene-store.js?v=1" defer></script>
 <script src="features.js?v=2" defer></script>
 <script>
-  // 節は、ぼけた状態から焦点が合うように現れる（Norma: opacity と blur 10px を 0.7 秒）
+  // 節は、ぼけた状態から焦点が合うように現れる（Norma: opacity と blur 10px を 0.7 秒）。
+  // 節の上の端が窓の下から 12% の所まで来たら現れる（threshold 0）。前は節の 15% が見えたらだったが、
+  // 機能の一覧を足して どう働くか の節が 6000 ほどに伸び、15% が窓に収まらず現れなかった（2026-10-25・SR「マニフェストから…までのところが何もない」）
   (function () {
     if (!('IntersectionObserver' in window)) { document.querySelectorAll('.reveal').forEach(function (e) { e.classList.add('in'); }); return; }
     var io = new IntersectionObserver(function (es) {
@@ -443,7 +445,7 @@
         x.target.classList.add('in');
         io.unobserve(x.target);
       });
-    }, { rootMargin: '0px 0px -12% 0px', threshold: 0.15 });
+    }, { rootMargin: '0px 0px -12% 0px', threshold: 0 });
     document.querySelectorAll('.reveal').forEach(function (e) { io.observe(e); });
   })();
 </script>
