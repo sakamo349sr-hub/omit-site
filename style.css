@@ -530,10 +530,11 @@ h2 { margin: 0 0 24px; font-family: var(--serif-jp); font-weight: 400; font-size
 .st-stage.is-narrow .st-chips span { height: 38px; padding: 0 20px; font-size: 14px; }
 
 /* 機能の一覧の上の見出し（mymind の YOUR PRIVATE OASIS と大きな一文を測った: 小さな題 16・字間 2px・主の色／一文 96・二行・題の下 40・一文の下 85）。
-   場面3 と一覧の間が空いていた【SR・10/25「メイン機能と機能一覧の間に何もない…彼らを参考にしてください」】。小さな題の色は OMIT. の主の色（ブロンズ） */
+   場面3 と一覧の間が空いていた【SR・10/25「メイン機能と機能一覧の間に何もない…彼らを参考にしてください」】。小さな題の色は OMIT. の主の色（ブロンズ）。
+   一文は SR の宣言の一文のままで長いので、広い画面は読点と「を」の後で折って三行（mymind は二行） */
 .fb-head { max-width: 1100px; margin: 168px auto 88px; text-align: center; }
 .fb-label { margin: 0 0 28px; font-family: var(--sans); font-weight: 600; font-size: 15px; line-height: 1.4; letter-spacing: 0.16em; color: var(--bronze); }
-.fb-title { margin: 0; font-size: clamp(40px, 4.6vw, 68px); line-height: 1.3; letter-spacing: 0.01em; }
+.fb-title { margin: 0; font-size: clamp(38px, 4.2vw, 62px); line-height: 1.32; letter-spacing: 0.01em; }
 .fb-title span { display: inline-block; }
 
 /* 機能の一覧（SR 同意の六つ・止まった絵 第4稿の中身・2026-10-25）。組み方は mymind の機能の塊を測った物【SR「mymind…を参考にすべきでしょう」】:
@@ -546,7 +547,7 @@ h2 { margin: 0 0 24px; font-family: var(--serif-jp); font-weight: 400; font-size
 .fb { width: max(100%, min(1300px, calc(100vw - 124px))); margin-left: calc((100% - max(100%, min(1300px, calc(100vw - 124px)))) / 2); }
 .fb-row { display: flex; gap: 40px; align-items: stretch; }
 .fb-row + .fb-row { margin-top: 40px; }
-.fb-card { box-sizing: border-box; display: flex; flex-direction: column; border-radius: var(--radius); padding: clamp(32px, 3.4vw, 50px); overflow: hidden; }
+.fb-card { box-sizing: border-box; display: flex; flex-direction: column; border-radius: var(--radius); padding: clamp(32px, 3.4vw, 50px); overflow: hidden; transition: transform 350ms cubic-bezier(0.65, 0, 0.35, 1); }
 .fb-card.n { flex: 0 0 calc((100% - 40px) * 0.413); }
 .fb-card.w { flex: 1 1 0; min-width: 0; }
 .fb-tone-grey { background: #efefef; }
@@ -561,6 +562,11 @@ h2 { margin: 0 0 24px; font-family: var(--serif-jp); font-weight: 400; font-size
 .fb-card > p { margin: 0; color: #555; font-size: 18px; line-height: 1.75; }
 .fb-card p span, .fb-card h3 span { display: inline-block; }   /* 句の途中で折らない */
 .fb .fb-vis > * { position: absolute; }
+/* 板にカーソルを乗せると、板が少し大きくなる（mymind の機能の板を測った: 板を包む列が 1.04 倍・約 0.1 秒後から 0.35 秒・始めと終わりがゆっくり）
+   【SR・10/25「カーソルを持っていくと、拡大されるアニメーションを取り入れているようです」】。指で触る画面では動かさない（Get the App と同じ） */
+@media (hover: hover) and (pointer: fine) {
+  .fb-card:hover { transform: scale(1.04); }
+}
 .fb .lift { box-shadow: 0 24px 48px -16px rgba(0, 0, 0, 0.18), 0 4px 12px rgba(0, 0, 0, 0.05); }
 /* 動きの中の、止まらない小さな物（見えている間だけ・features.js が .play を付ける）: 聞いている印の波・消すの輪 */
 @keyframes fb-ripple { 0% { transform: scale(1); opacity: 0.7; } 100% { transform: scale(2.6); opacity: 0; } }
